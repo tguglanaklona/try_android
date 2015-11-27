@@ -1,2 +1,0 @@
-# try_android
-AndroidStudioProjects
