@@ -1,0 +1,14 @@
+-shared
+-Wl,-soname,libgl2jni.so
+-o
+C:\\Users\\HP\\AndroidStudioProjects\\FlappyBirdApp\\app\\build\\intermediates\\binaries\\debug\\all\\obj\\arm64-v8a\\libgl2jni.so
+C:\\Users\\HP\\AndroidStudioProjects\\FlappyBirdApp\\app\\build\\intermediates\\objectFiles\\arm64-v8aDebugAllGl2jniSharedLibrary\\gl2jniMainCpp\\5ej09k757dauohilcn608u4x7\\gl_code.o
+-Wl,--no-undefined
+-Wl,-z,noexecstack
+-Wl,-z,relro
+-Wl,-z,now
+--sysroot=C:\\Programs\\android-ndk-r10e/platforms/android-21/arch-arm64
+-Wl,--build-id
+-no-canonical-prefixes
+-llog
+-lGLESv2

@@ -1,0 +1,14 @@
+-shared
+-Wl,-soname,libgl2jni.so
+-o
+C:\\Users\\HP\\AndroidStudioProjects\\HelloGL2\\app\\build\\intermediates\\binaries\\debug\\all\\obj\\mips64\\libgl2jni.so
+C:\\Users\\HP\\AndroidStudioProjects\\HelloGL2\\app\\build\\intermediates\\objectFiles\\mips64DebugAllGl2jniSharedLibrary\\gl2jniMainCpp\\7961ey93zhr6ylpaivzxn67p0\\gl_code.o
+-Wl,--no-undefined
+-Wl,-z,noexecstack
+-Wl,-z,relro
+-Wl,-z,now
+--sysroot=C:\\Programs\\android-ndk-r10e/platforms/android-21/arch-mips64
+-Wl,--build-id
+-no-canonical-prefixes
+-llog
+-lGLESv2

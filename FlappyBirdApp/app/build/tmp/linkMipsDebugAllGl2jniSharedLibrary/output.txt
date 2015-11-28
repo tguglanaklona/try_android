@@ -1,0 +1,4 @@
+See file:///C:/Users/HP/AndroidStudioProjects/FlappyBirdApp/app/build/tmp/linkMipsDebugAllGl2jniSharedLibrary/output.txt for all output for linkMipsDebugAllGl2jniSharedLibrary.
+linking libgl2jni.so successful.
+
+Finished linkMipsDebugAllGl2jniSharedLibrary, see full log file:///C:/Users/HP/AndroidStudioProjects/FlappyBirdApp/app/build/tmp/linkMipsDebugAllGl2jniSharedLibrary/output.txt.
