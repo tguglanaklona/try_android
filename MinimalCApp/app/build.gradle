@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.hp.myfirstapp"
-        minSdkVersion 8
+        minSdkVersion 8 //поддержка OpenGL 2.0 начинается с версии Android 2.2 (API 8)
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"

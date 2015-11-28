@@ -6,7 +6,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.ImageView;
 import android.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
