@@ -16,7 +16,12 @@ public class MyActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
 
-        // hide the status bar
+        TextView tv = new TextView(this);
+        //tv.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN);
+        tv.setText(HelloJNI());
+        setContentView(tv);
+
+        // hide the status bar (once)
         if (Build.VERSION.SDK_INT < 16) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -30,13 +35,10 @@ public class MyActivity extends AppCompatActivity {
         }
         else{
             View decorView = getWindow().getDecorView();
-            decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN);
-            //(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);//(View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_FULLSCREEN);
+            //int uiOptions = SYSTEM_UI_FLAG_LOW_PROFILE | View.SYSTEM_UI_FLAG_FULLSCREEN;
+            int uiOptions = View.SYSTEM_UI_FLAG_IMMERSIVE | View.SYSTEM_UI_FLAG_FULLSCREEN;
+            decorView.setSystemUiVisibility(uiOptions);
         }
-
-        TextView tv = new TextView(this);
-        tv.setText(HelloJNI());
-        setContentView(tv);
 
         //setContentView(R.layout.activity_my);
         //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
