@@ -1,0 +1,12 @@
+//
+// Created by HP on 29.11.2015.
+//
+
+#ifndef FLAPPYBIRDAPP_FLAPPY_OBJECT_H
+#define FLAPPYBIRDAPP_FLAPPY_OBJECT_H
+
+class FlappyObject {
+
+};
+
+#endif //FLAPPYBIRDAPP_FLAPPY_OBJECT_H
