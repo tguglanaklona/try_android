@@ -3,6 +3,10 @@
 -o
 C:\\Users\\HP\\AndroidStudioProjects\\FlappyBirdApp\\app\\build\\intermediates\\binaries\\debug\\all\\obj\\mips64\\libgl2jni.so
 C:\\Users\\HP\\AndroidStudioProjects\\FlappyBirdApp\\app\\build\\intermediates\\objectFiles\\mips64DebugAllGl2jniSharedLibrary\\gl2jniMainCpp\\5ej09k757dauohilcn608u4x7\\gl_code.o
+C:\\Users\\HP\\AndroidStudioProjects\\FlappyBirdApp\\app\\build\\intermediates\\objectFiles\\mips64DebugAllGl2jniSharedLibrary\\gl2jniMainCpp\\6z0801vaj1gxc16wtm2y81937\\gl_draw.o
+C:\\Users\\HP\\AndroidStudioProjects\\FlappyBirdApp\\app\\build\\intermediates\\objectFiles\\mips64DebugAllGl2jniSharedLibrary\\gl2jniMainCpp\\c5dmphipap1ft6vckuh00oaks\\panorama.o
+C:\\Users\\HP\\AndroidStudioProjects\\FlappyBirdApp\\app\\build\\intermediates\\objectFiles\\mips64DebugAllGl2jniSharedLibrary\\gl2jniMainCpp\\d9kbdwiccoeve90ybwq6mk2ui\\tlist.o
+C:\\Users\\HP\\AndroidStudioProjects\\FlappyBirdApp\\app\\build\\intermediates\\objectFiles\\mips64DebugAllGl2jniSharedLibrary\\gl2jniMainCpp\\dkffs5dalo8b574x6u8cc7cpc\\geometry.o
 -Wl,--no-undefined
 -Wl,-z,noexecstack
 -Wl,-z,relro

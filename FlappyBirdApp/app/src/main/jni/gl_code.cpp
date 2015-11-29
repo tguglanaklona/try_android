@@ -17,34 +17,16 @@
 // OpenGL ES 2.0 code
 
 #include <jni.h>
-#include <android/log.h>
-
-#include <GLES2/gl2.h>
-#include <GLES2/gl2ext.h>
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
+#include "headers.h" //GLES2
 
 #include "gl_code.h"
-
-#define  LOG_TAG    "libgl2jni"
-#define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
-#define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
 
 static void printGLString(const char *name, GLenum s) {
     const char *v = (const char *) glGetString(s);
     LOGI("GL %s = %s\n", name, v);
 }
 
-static void checkGlError(const char* op) {
-    for (GLint error = glGetError(); error; error
-            = glGetError()) {
-        LOGI("after %s() glError (0x%x)\n", op, error);
-    }
-}
-
-static const char gVertexShader[] = 
+static const char gVertexShader[] =
     "attribute vec4 vPosition;\n"
     "void main() {\n"
     "  gl_Position = vPosition;\n"
@@ -140,13 +122,46 @@ bool setupGraphics(int w, int h) {// implements onSurfaceChanged
     LOGI("glGetAttribLocation(\"vPosition\") = %d\n",
             gvPositionHandle);
 
+    gViewportWidth = w;
+    gViewportHeight = h;
     glViewport(0, 0, w, h);
     checkGlError("glViewport");
     return true;
 }
 
-//const GLfloat gTriangleVertices[] = { 0.0f, 0.5f, -0.5f, -0.5f,
-//        0.5f, -0.5f };
+void DrawGLScene(){// Here's Where We Do All The Drawing
+
+    gl_draw glDraw(&globalScene, &gvPositionHandle);
+    glDraw.drawBarriers();
+
+    /*if (!globalScene.isEmptyBarrier()){
+        //draw barrier (f)
+        //for (BarrierRect* pBarrier = globalScene.firstBarrier(); pBarrier; pBarrier = pBarrier->Next()) {
+        //
+        //}
+
+        BarrierRect* pBarrier = globalScene.firstBarrier();
+        pBarrier->mGlobalVertex.mX -= 0.01f;
+        if (!pBarrier) return;
+
+        glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, pBarrier->glDrawVertices());
+        checkGlError("glVertexAttribPointer");
+        glEnableVertexAttribArray(gvPositionHandle);
+        checkGlError("glEnableVertexAttribArray");
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 5);
+        checkGlError("glDrawArrays");
+    }*/
+
+    /*
+     * test triangle
+     *
+    glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, gTriangleVertices);
+    checkGlError("glVertexAttribPointer");
+    glEnableVertexAttribArray(gvPositionHandle);
+    checkGlError("glEnableVertexAttribArray");
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+    checkGlError("glDrawArrays");*/
+}
 
 void renderFrame() {// implements onDrawFrame
     static float grey;
@@ -162,12 +177,7 @@ void renderFrame() {// implements onDrawFrame
     glUseProgram(gProgram);
     checkGlError("glUseProgram");
 
-    glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, gTriangleVertices);
-    checkGlError("glVertexAttribPointer");
-    glEnableVertexAttribArray(gvPositionHandle);
-    checkGlError("glEnableVertexAttribArray");
-    glDrawArrays(GL_TRIANGLES, 0, 3);
-    checkGlError("glDrawArrays");
+    DrawGLScene();
 }
 
 extern "C" {
