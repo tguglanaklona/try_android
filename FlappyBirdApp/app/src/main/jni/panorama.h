@@ -19,14 +19,16 @@ public:
     Panorama() : mpFlappyBird(NULL), mplstRectBarriers(NULL){ // first time initialization here
         mpFlappyBird = new FlappyCircle(PntR2(-0.75f, 0.0f), 0.2f);
 
-        BarrierRect barrierRect(PntR2(-0.5f, -1.0f), 0.1f, 0.2f);
         mplstRectBarriers = new TListOf<BarrierRect>();
+        BarrierRect barrierRect(PntR2(-0.5f, -1.0f), 0.1f, 0.2f);
         appendBarrier(barrierRect);
+        BarrierRect barrierRec2(PntR2(0.5f, -1.0f), 0.1f, 0.3f);
+        appendBarrier(barrierRec2);
     };
     ~Panorama(){
         if (mpFlappyBird) delete(mpFlappyBird);
         if (mplstRectBarriers) delete(mplstRectBarriers);
-    }
+    };
 
 private:
     FlappyCircle* mpFlappyBird;
@@ -35,8 +37,10 @@ private:
 public:
     void appendBarrier(BarrierRect& item); // append last (push)
     void deleteBarrier();                  // delete first (pop)
-    BarrierRect* firstBarrier() const;
-    bool isEmptyBarrier() const;
+    bool isEmptyBarriers() const;
+
+    //TListItemOf<BarrierRect>* firstBarrier() const;
+    TListOf<BarrierRect>* barriers() const;
 };
 
 #endif //FLAPPYBIRDAPP_PANORAMA_H

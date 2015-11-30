@@ -55,7 +55,8 @@ bool BarrierRect::isEmpty(){
     return (mGlobalVertex.mX == 0.0f)&&(mGlobalVertex.mY == 0.0f)&&(mL == 0.0f)&&(mH == 0.0);
 }
 
-const GLfloat* BarrierRect::glDrawVertices() const{
+const GLfloat* BarrierRect::glDrawVertices(bool bRecalc){
+    if (bRecalc) calcDrawVertices();
     return pGL5Vertices;
 }
 

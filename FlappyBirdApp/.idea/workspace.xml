@@ -34,11 +34,9 @@
       <file leaf-file-name="gl_code.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_code.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.5882354">
-              <caret line="133" column="16" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="16" />
-              <folding>
-                <element signature="e#644#660#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-7.4117646">
+              <caret line="134" column="18" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,8 +44,8 @@
       <file leaf-file-name="gl_draw.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_draw.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.470588">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state vertical-scroll-proportion="-10.588235">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -56,8 +54,8 @@
       <file leaf-file-name="gl_draw.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_draw.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8333333">
-              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.1577061">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -66,7 +64,7 @@
       <file leaf-file-name="gl_code.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_code.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.705882">
+            <state vertical-scroll-proportion="0.0">
               <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
               <folding />
             </state>
@@ -76,8 +74,8 @@
       <file leaf-file-name="panorama.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/jni/panorama.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.5882354">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state vertical-scroll-proportion="-19.411764">
+              <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -86,8 +84,8 @@
       <file leaf-file-name="panorama.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/jni/panorama.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.058824">
-              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+            <state vertical-scroll-proportion="-6.470588">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -96,8 +94,8 @@
       <file leaf-file-name="geometry.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/jni/geometry.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.1764708">
-              <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
+            <state vertical-scroll-proportion="-9.705882">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -106,8 +104,8 @@
       <file leaf-file-name="geometry.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/jni/geometry.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.529412">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state vertical-scroll-proportion="-6.7647057">
+              <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -116,10 +114,9 @@
       <file leaf-file-name="tlist.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/jni/tlist.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-53.705883">
-              <caret line="213" column="28" selection-start-line="213" selection-start-column="28" selection-end-line="213" selection-end-column="28" />
+            <state vertical-scroll-proportion="-3.8823528">
+              <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
               <folding>
-                <element signature="e#7481#7490#0" expanded="true" />
                 <marker date="1448835042141" expanded="true" signature="8476:8494" placeholder="&lt;T&gt;" />
               </folding>
             </state>
@@ -129,7 +126,7 @@
       <file leaf-file-name="tlist.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/jni/tlist.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.529412">
+            <state vertical-scroll-proportion="0.0">
               <caret line="411" column="12" selection-start-line="411" selection-start-column="12" selection-end-line="411" selection-end-column="12" />
               <folding />
             </state>
@@ -8150,16 +8147,16 @@
         <option value="$PROJECT_DIR$/app/src/main/jni/list.h" />
         <option value="$PROJECT_DIR$/app/src/main/jni/list.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/jni/headers.h" />
+        <option value="$PROJECT_DIR$/app/src/main/jni/tlist.cpp" />
+        <option value="$PROJECT_DIR$/app/src/main/jni/tlist.h" />
+        <option value="$PROJECT_DIR$/app/src/main/jni/gl_code.h" />
+        <option value="$PROJECT_DIR$/app/src/main/jni/panorama.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/jni/geometry.h" />
         <option value="$PROJECT_DIR$/app/src/main/jni/geometry.cpp" />
-        <option value="$PROJECT_DIR$/app/src/main/jni/tlist.cpp" />
-        <option value="$PROJECT_DIR$/app/src/main/jni/panorama.cpp" />
-        <option value="$PROJECT_DIR$/app/src/main/jni/tlist.h" />
+        <option value="$PROJECT_DIR$/app/src/main/jni/gl_code.cpp" />
         <option value="$PROJECT_DIR$/app/src/main/jni/panorama.h" />
-        <option value="$PROJECT_DIR$/app/src/main/jni/gl_code.h" />
         <option value="$PROJECT_DIR$/app/src/main/jni/gl_draw.h" />
         <option value="$PROJECT_DIR$/app/src/main/jni/gl_draw.cpp" />
-        <option value="$PROJECT_DIR$/app/src/main/jni/gl_code.cpp" />
       </list>
     </option>
   </component>
@@ -8205,53 +8202,11 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FlappyBirdApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FlappyBirdApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jni" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FlappyBirdApp" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gl2jni" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -8490,12 +8445,12 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.46666667" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29537767" sideWeight="0.47708333" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.46458334" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29537767" sideWeight="0.46666667" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990981" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32919955" sideWeight="0.6588542" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29537767" sideWeight="0.53333336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -8506,7 +8461,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1609375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.49166667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32919955" sideWeight="0.48958334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -8533,7 +8488,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="15" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -8541,10 +8496,90 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_code.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="148" column="2" selection-start-line="148" selection-start-column="2" selection-end-line="148" selection-end-column="2" />
+          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_draw.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_draw.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_code.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/panorama.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/panorama.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/geometry.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/geometry.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/tlist.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="213" column="28" selection-start-line="213" selection-start-column="28" selection-end-line="213" selection-end-column="28" />
           <folding>
-            <element signature="e#644#660#0" expanded="true" />
+            <marker date="1448835042141" expanded="true" signature="8476:8494" placeholder="&lt;T&gt;" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/tlist.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="411" column="12" selection-start-line="411" selection-start-column="12" selection-end-line="411" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_code.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="148" column="2" selection-start-line="148" selection-start-column="2" selection-end-line="148" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -8568,10 +8603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#1332#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -8579,10 +8610,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="327" column="24" selection-start-line="327" selection-start-column="24" selection-end-line="327" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#13641#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -8590,42 +8617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="745" column="17" selection-start-line="745" selection-start-column="17" selection-end-line="745" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#77723#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#10530#10531#0" expanded="false" />
-            <element signature="e#10568#10569#0" expanded="false" />
-            <element signature="e#10979#10980#0" expanded="false" />
-            <element signature="e#11019#11020#0" expanded="false" />
-            <element signature="e#11171#11172#0" expanded="false" />
-            <element signature="e#11205#11206#0" expanded="false" />
-            <element signature="e#12341#12342#0" expanded="false" />
-            <element signature="e#12390#12391#0" expanded="false" />
-            <element signature="e#19309#19310#0" expanded="false" />
-            <element signature="e#19360#19361#0" expanded="false" />
-            <element signature="e#19653#19654#0" expanded="false" />
-            <element signature="e#19701#19702#0" expanded="false" />
-            <element signature="e#20054#20055#0" expanded="false" />
-            <element signature="e#20095#20096#0" expanded="false" />
-            <element signature="e#20312#20313#0" expanded="false" />
-            <element signature="e#20354#20355#0" expanded="false" />
-            <element signature="e#21254#21255#0" expanded="false" />
-            <element signature="e#21289#21290#0" expanded="false" />
-            <element signature="e#21628#21629#0" expanded="false" />
-            <element signature="e#21664#21665#0" expanded="false" />
-            <element signature="e#21991#21992#0" expanded="false" />
-            <element signature="e#22030#22031#0" expanded="false" />
-            <element signature="e#33468#33469#0" expanded="false" />
-            <element signature="e#33534#33535#0" expanded="false" />
-            <element signature="e#64067#64068#0" expanded="false" />
-            <element signature="e#64149#64150#0" expanded="false" />
-            <element signature="e#70998#71008#0" expanded="false" />
-            <element signature="e#71585#71586#0" expanded="false" />
-            <element signature="e#71623#71624#0" expanded="false" />
-            <element signature="e#71664#71665#0" expanded="false" />
-            <element signature="e#71702#71703#0" expanded="false" />
-            <element signature="e#77290#77305#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -8633,7 +8624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -8641,9 +8631,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#644#660#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -8659,10 +8647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#1332#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -8670,10 +8654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="327" column="24" selection-start-line="327" selection-start-column="24" selection-end-line="327" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#13641#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -8681,42 +8661,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="745" column="17" selection-start-line="745" selection-start-column="17" selection-end-line="745" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#77723#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#10530#10531#0" expanded="false" />
-            <element signature="e#10568#10569#0" expanded="false" />
-            <element signature="e#10979#10980#0" expanded="false" />
-            <element signature="e#11019#11020#0" expanded="false" />
-            <element signature="e#11171#11172#0" expanded="false" />
-            <element signature="e#11205#11206#0" expanded="false" />
-            <element signature="e#12341#12342#0" expanded="false" />
-            <element signature="e#12390#12391#0" expanded="false" />
-            <element signature="e#19309#19310#0" expanded="false" />
-            <element signature="e#19360#19361#0" expanded="false" />
-            <element signature="e#19653#19654#0" expanded="false" />
-            <element signature="e#19701#19702#0" expanded="false" />
-            <element signature="e#20054#20055#0" expanded="false" />
-            <element signature="e#20095#20096#0" expanded="false" />
-            <element signature="e#20312#20313#0" expanded="false" />
-            <element signature="e#20354#20355#0" expanded="false" />
-            <element signature="e#21254#21255#0" expanded="false" />
-            <element signature="e#21289#21290#0" expanded="false" />
-            <element signature="e#21628#21629#0" expanded="false" />
-            <element signature="e#21664#21665#0" expanded="false" />
-            <element signature="e#21991#21992#0" expanded="false" />
-            <element signature="e#22030#22031#0" expanded="false" />
-            <element signature="e#33468#33469#0" expanded="false" />
-            <element signature="e#33534#33535#0" expanded="false" />
-            <element signature="e#64067#64068#0" expanded="false" />
-            <element signature="e#64149#64150#0" expanded="false" />
-            <element signature="e#70998#71008#0" expanded="false" />
-            <element signature="e#71585#71586#0" expanded="false" />
-            <element signature="e#71623#71624#0" expanded="false" />
-            <element signature="e#71664#71665#0" expanded="false" />
-            <element signature="e#71702#71703#0" expanded="false" />
-            <element signature="e#77290#77305#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -8724,7 +8668,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -8753,10 +8696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#1332#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -8772,42 +8711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="745" column="17" selection-start-line="745" selection-start-column="17" selection-end-line="745" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#77723#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#10530#10531#0" expanded="false" />
-            <element signature="e#10568#10569#0" expanded="false" />
-            <element signature="e#10979#10980#0" expanded="false" />
-            <element signature="e#11019#11020#0" expanded="false" />
-            <element signature="e#11171#11172#0" expanded="false" />
-            <element signature="e#11205#11206#0" expanded="false" />
-            <element signature="e#12341#12342#0" expanded="false" />
-            <element signature="e#12390#12391#0" expanded="false" />
-            <element signature="e#19309#19310#0" expanded="false" />
-            <element signature="e#19360#19361#0" expanded="false" />
-            <element signature="e#19653#19654#0" expanded="false" />
-            <element signature="e#19701#19702#0" expanded="false" />
-            <element signature="e#20054#20055#0" expanded="false" />
-            <element signature="e#20095#20096#0" expanded="false" />
-            <element signature="e#20312#20313#0" expanded="false" />
-            <element signature="e#20354#20355#0" expanded="false" />
-            <element signature="e#21254#21255#0" expanded="false" />
-            <element signature="e#21289#21290#0" expanded="false" />
-            <element signature="e#21628#21629#0" expanded="false" />
-            <element signature="e#21664#21665#0" expanded="false" />
-            <element signature="e#21991#21992#0" expanded="false" />
-            <element signature="e#22030#22031#0" expanded="false" />
-            <element signature="e#33468#33469#0" expanded="false" />
-            <element signature="e#33534#33535#0" expanded="false" />
-            <element signature="e#64067#64068#0" expanded="false" />
-            <element signature="e#64149#64150#0" expanded="false" />
-            <element signature="e#70998#71008#0" expanded="false" />
-            <element signature="e#71585#71586#0" expanded="false" />
-            <element signature="e#71623#71624#0" expanded="false" />
-            <element signature="e#71664#71665#0" expanded="false" />
-            <element signature="e#71702#71703#0" expanded="false" />
-            <element signature="e#77290#77305#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -8815,10 +8718,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="327" column="24" selection-start-line="327" selection-start-column="24" selection-end-line="327" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#13641#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -8826,7 +8725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41666666">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -8842,7 +8740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26013514">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -8850,42 +8747,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.2941177">
           <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-          <folding>
-            <element signature="e#99#121#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/jni/tlist.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.529412">
+        <state vertical-scroll-proportion="0.0">
           <caret line="411" column="12" selection-start-line="411" selection-start-column="12" selection-end-line="411" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/jni/geometry.cpp">
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_code.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.529412">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/jni/geometry.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.1764708">
-          <caret line="52" column="10" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/jni/tlist.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-53.705883">
-          <caret line="213" column="28" selection-start-line="213" selection-start-column="28" selection-end-line="213" selection-end-column="28" />
+        <state vertical-scroll-proportion="-3.8823528">
+          <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
           <folding>
-            <element signature="e#7481#7490#0" expanded="true" />
             <marker date="1448835042141" expanded="true" signature="8476:8494" placeholder="&lt;T&gt;" />
           </folding>
         </state>
@@ -8893,50 +8778,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/jni/panorama.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.058824">
-          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/jni/panorama.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.5882354">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_code.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.705882">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_draw.cpp">
-      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.470588">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/geometry.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.7647057">
+          <caret line="60" column="1" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_code.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.5882354">
-          <caret line="133" column="16" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="16" />
-          <folding>
-            <element signature="e#644#660#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-7.4117646">
+          <caret line="134" column="18" selection-start-line="134" selection-start-column="18" selection-end-line="134" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_draw.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.588235">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/geometry.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.705882">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/panorama.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.411764">
+          <caret line="30" column="6" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/jni/gl_draw.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8333333">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.1577061">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>

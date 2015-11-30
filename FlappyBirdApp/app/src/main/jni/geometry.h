@@ -58,7 +58,7 @@ private:
     void calcDrawVertices();
 
 public:
-    const GLfloat* glDrawVertices() const;
+    const GLfloat* glDrawVertices(bool);
 };
 
 /**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**/

@@ -15,14 +15,17 @@ void Panorama::appendBarrier(BarrierRect& item){ // append last (push)
 void Panorama::deleteBarrier(){                  // delete first (pop)
 }
 
-BarrierRect* Panorama::firstBarrier() const{
+TListOf<BarrierRect>* Panorama::barriers() const{
+    return mplstRectBarriers;
+}
+
+/*TListItemOf<BarrierRect>* Panorama::firstBarrier() const{
     if (mplstRectBarriers->IsEmpty())            // comment if slow
         return NULL;
 
-    TListItemOf<BarrierRect>* pItem = mplstRectBarriers->First();
-    return &(pItem->m_value);
-}
+    return mplstRectBarriers->First();
+}*/
 
-bool Panorama::isEmptyBarrier() const{
+bool Panorama::isEmptyBarriers() const{
     return (mplstRectBarriers->IsEmpty()) ? true : false;
 }

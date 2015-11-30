@@ -1,5 +1,5 @@
 //
-// gl_draw.h
+// gl_draw: uses Panorama objects to draw in DrawGLScene()
 //
 
 #ifndef FLAPPYBIRDAPP_GL_DRAW_H
@@ -23,8 +23,7 @@ static void checkGlError(const char* op) {
 
 class gl_draw {
 public:
-    gl_draw(const Panorama* pgScene, GLuint* pgvPositionHandle):
-            mpScene(pgScene), mpvPositionHandle(pgvPositionHandle){};
+    gl_draw(const Panorama* pgScene, GLuint* pgvPositionHandle);
     ~gl_draw(){};
     GLuint mvPositionHandle();
 
@@ -33,6 +32,9 @@ public:
 private:
     const Panorama* mpScene;
     GLuint* mpvPositionHandle;
+
+public:
+    GLfloat barriersVelocity;
 };
 
 

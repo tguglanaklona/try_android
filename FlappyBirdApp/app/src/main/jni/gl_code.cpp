@@ -164,8 +164,8 @@ void DrawGLScene(){// Here's Where We Do All The Drawing
 }
 
 void renderFrame() {// implements onDrawFrame
-    static float grey;
-    grey += 0.01f;
+    static float grey = 0.0f;
+//    grey += 0.01f;
     if (grey > 1.0f) {
         grey = 0.0f;
     }

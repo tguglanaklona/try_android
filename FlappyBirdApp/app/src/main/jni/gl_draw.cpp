@@ -6,24 +6,22 @@
 
 //Panorama globalScene;
 
-
+gl_draw::gl_draw(const Panorama* pgScene, GLuint* pgvPositionHandle):
+        mpScene(pgScene), mpvPositionHandle(pgvPositionHandle){
+    barriersVelocity = 0.001f;
+}
 
 GLuint gl_draw::mvPositionHandle(){
     return *mpvPositionHandle;
 }
 
 void gl_draw::drawBarriers(){
-    if (!mpScene->isEmptyBarrier()){
 
-        //for (BarrierRect* pBarrier = globalScene.firstBarrier(); pBarrier; pBarrier = pBarrier->Next()) {
-        //
-        //}
+    for (TListItemOf<BarrierRect>* pBarrier = mpScene->barriers()->First(); pBarrier; pBarrier = pBarrier->Next()) {
+        BarrierRect* pB = &(pBarrier->m_value);
+        pB->mGlobalVertex.mX -= barriersVelocity;
 
-        BarrierRect* pBarrier = mpScene->firstBarrier();
-        if (!pBarrier) return;
-        pBarrier->mGlobalVertex.mX -= 0.01f;
-
-        glVertexAttribPointer(mvPositionHandle(), 2, GL_FLOAT, GL_FALSE, 0, pBarrier->glDrawVertices());
+        glVertexAttribPointer(mvPositionHandle(), 2, GL_FLOAT, GL_FALSE, 0, pB->glDrawVertices(1));
         checkGlError("glVertexAttribPointer");
         glEnableVertexAttribArray(mvPositionHandle());
         checkGlError("glEnableVertexAttribArray");
