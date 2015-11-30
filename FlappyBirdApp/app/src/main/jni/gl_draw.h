@@ -23,18 +23,21 @@ static void checkGlError(const char* op) {
 
 class gl_draw {
 public:
-    gl_draw(const Panorama* pgScene, GLuint* pgvPositionHandle);
+    gl_draw(Panorama* pgScene, GLuint* pgvPositionHandle);
     ~gl_draw(){};
     GLuint mvPositionHandle();
 
     void drawBarriers();
 
 private:
-    const Panorama* mpScene;
+    Panorama* mpScene;
     GLuint* mpvPositionHandle;
 
 public:
-    GLfloat barriersVelocity;
+    GLfloat mBarriersVelocity; // units/frame
+    GLfloat mBirdVelocity;     // units/frame
+
+    GLfloat mGlobalVelocity;   // units/frame
 };
 
 

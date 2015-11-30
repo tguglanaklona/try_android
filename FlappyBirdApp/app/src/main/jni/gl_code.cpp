@@ -132,25 +132,10 @@ bool setupGraphics(int w, int h) {// implements onSurfaceChanged
 void DrawGLScene(){// Here's Where We Do All The Drawing
 
     gl_draw glDraw(&globalScene, &gvPositionHandle);
+
     glDraw.drawBarriers();
 
-    /*if (!globalScene.isEmptyBarrier()){
-        //draw barrier (f)
-        //for (BarrierRect* pBarrier = globalScene.firstBarrier(); pBarrier; pBarrier = pBarrier->Next()) {
-        //
-        //}
 
-        BarrierRect* pBarrier = globalScene.firstBarrier();
-        pBarrier->mGlobalVertex.mX -= 0.01f;
-        if (!pBarrier) return;
-
-        glVertexAttribPointer(gvPositionHandle, 2, GL_FLOAT, GL_FALSE, 0, pBarrier->glDrawVertices());
-        checkGlError("glVertexAttribPointer");
-        glEnableVertexAttribArray(gvPositionHandle);
-        checkGlError("glEnableVertexAttribArray");
-        glDrawArrays(GL_TRIANGLE_STRIP, 0, 5);
-        checkGlError("glDrawArrays");
-    }*/
 
     /*
      * test triangle
@@ -160,7 +145,8 @@ void DrawGLScene(){// Here's Where We Do All The Drawing
     glEnableVertexAttribArray(gvPositionHandle);
     checkGlError("glEnableVertexAttribArray");
     glDrawArrays(GL_TRIANGLES, 0, 3);
-    checkGlError("glDrawArrays");*/
+    checkGlError("glDrawArrays");
+     */
 }
 
 void renderFrame() {// implements onDrawFrame

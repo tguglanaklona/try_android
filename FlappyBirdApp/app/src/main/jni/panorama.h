@@ -14,25 +14,26 @@
 #include "tlist.h" // if we go without STL library - create simple List
 #endif
 
-class Panorama { // just repository (otherwise can operates with global objects)
-public:
-    Panorama() : mpFlappyBird(NULL), mplstRectBarriers(NULL){ // first time initialization here
-        mpFlappyBird = new FlappyCircle(PntR2(-0.75f, 0.0f), 0.2f);
+struct BarrierLimits{
+    GLfloat minWidth; // units (1x1)
+    GLfloat maxWidth; // units (1x1)
+    GLfloat minLastSpace;
+    GLfloat maxLastSpace;
+    GLfloat minHeight;
+    GLfloat maxHeight;
+};
 
-        mplstRectBarriers = new TListOf<BarrierRect>();
-        BarrierRect barrierRect(PntR2(-0.5f, -1.0f), 0.1f, 0.2f);
-        appendBarrier(barrierRect);
-        BarrierRect barrierRec2(PntR2(0.5f, -1.0f), 0.1f, 0.3f);
-        appendBarrier(barrierRec2);
-    };
-    ~Panorama(){
-        if (mpFlappyBird) delete(mpFlappyBird);
-        if (mplstRectBarriers) delete(mplstRectBarriers);
-    };
+class Panorama { // just repository (otherwise can operate with global objects)
+public:
+    Panorama(); // first time initialization here
+    ~Panorama();
 
 private:
     FlappyCircle* mpFlappyBird;
     TListOf<BarrierRect>* mplstRectBarriers;
+
+    Panorama(const Panorama&);
+    void operator=(const Panorama&);
 
 public:
     void appendBarrier(BarrierRect& item); // append last (push)
@@ -41,6 +42,23 @@ public:
 
     //TListItemOf<BarrierRect>* firstBarrier() const;
     TListOf<BarrierRect>* barriers() const;
+
+public: //geometry
+    void randLastBarrier();
+    GLfloat getRndLastBarrierSpace();
+    GLfloat getRndLastBarrierWidth();
+    GLfloat getRndLastBarrierHeight();
+    BarrierLimits mBarrierLimits; //Barrier limits
+    GLfloat mBirdRadius;          //Bird limits
+
+private:
+    GLfloat mRndLastBarrierSpace;
+    GLfloat mRndLastBarrierWidth;
+    GLfloat mRndLastBarrierHeight;
+
+    void randLastBarrierSpace();
+    void randLastBarrierWidth();
+    void randLastBarrierHeight();
 };
 
 #endif //FLAPPYBIRDAPP_PANORAMA_H
