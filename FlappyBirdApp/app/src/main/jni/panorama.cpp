@@ -8,11 +8,11 @@
 
 Panorama::Panorama() : mpFlappyBird(NULL), mplstRectBarriers(NULL){  // first time initialization here
     // parameters initialization
-    mBirdRadius = 0.05f;              //units
+    mBirdRadius = 0.10f;              //units
     mBarrierLimits.minWidth = 0.03f;  // units
     mBarrierLimits.maxWidth = 0.10f;  // units
-    mBarrierLimits.minLastSpace = 2.5f*mBarrierLimits.maxWidth;
-    mBarrierLimits.maxLastSpace = 5.0f*mBarrierLimits.maxWidth;
+    mBarrierLimits.minLastSpace = 3.0f*mBarrierLimits.maxWidth;
+    mBarrierLimits.maxLastSpace = 7.0f*mBarrierLimits.maxWidth;
     mBarrierLimits.minHeight = 0.03f; // units
     mBarrierLimits.maxHeight = 0.50f - 1.5f*mBirdRadius; // units
     randLastBarrier();
@@ -38,6 +38,25 @@ void Panorama::appendBarrier(BarrierRect& item){ // append last (push)
     mplstRectBarriers->Append(pItem);
 
     randLastBarrier();
+}
+
+void Panorama::deleteBarrier(){                  // delete first (pop)
+    TListItemOf<BarrierRect>* pFirst = mplstRectBarriers->First();
+    if (pFirst){ // comment check if slow
+        mplstRectBarriers->DeleteItem(pFirst);
+    }
+}
+
+TListOf<BarrierRect>* Panorama::barriers() const{
+    return mplstRectBarriers;
+}
+
+FlappyCircle* Panorama::bird() const {
+    return mpFlappyBird;
+}
+
+bool Panorama::isEmptyBarriers() const{
+    return (mplstRectBarriers->IsEmpty()) ? true : false;
 }
 
 void Panorama::randLastBarrier(){
@@ -71,22 +90,4 @@ GLfloat Panorama::getRndLastBarrierWidth(){
 
 GLfloat Panorama::getRndLastBarrierHeight(){
     return mRndLastBarrierHeight;
-}
-
-void Panorama::deleteBarrier(){                  // delete first (pop)
-}
-
-TListOf<BarrierRect>* Panorama::barriers() const{
-    return mplstRectBarriers;
-}
-
-/*TListItemOf<BarrierRect>* Panorama::firstBarrier() const{
-    if (mplstRectBarriers->IsEmpty())            // comment if slow
-        return NULL;
-
-    return mplstRectBarriers->First();
-}*/
-
-bool Panorama::isEmptyBarriers() const{
-    return (mplstRectBarriers->IsEmpty()) ? true : false;
 }

@@ -39,6 +39,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.View;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -76,6 +77,14 @@ class GL2JNIView extends GLSurfaceView {
     public GL2JNIView(Context context, boolean translucent, int depth, int stencil) {
         super(context);
         init(translucent, depth, stencil);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        float x = event.getX();
+        float y = event.getY();
+        GL2JNILib.touch(x, y);// to gl_code
+        return super.onTouchEvent(event);
     }
 
     private void init(boolean translucent, int depth, int stencil) {

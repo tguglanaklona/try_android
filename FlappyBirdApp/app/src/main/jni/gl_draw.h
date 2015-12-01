@@ -28,6 +28,7 @@ public:
     GLuint mvPositionHandle();
 
     void drawBarriers();
+    bool drawBird();
 
 private:
     Panorama* mpScene;

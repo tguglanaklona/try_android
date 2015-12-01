@@ -19,6 +19,7 @@ package com.android.gl2jni;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.WindowManager;
 
 import java.io.File;
@@ -43,5 +44,13 @@ public class GL2JNIActivity extends Activity {
     @Override protected void onResume() {
         super.onResume();
         mView.onResume();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        //float x = event.getX();
+        //float y = event.getY();
+        boolean parent = super.onTouchEvent(event);
+        return parent && mView.onTouchEvent(event);
     }
 }

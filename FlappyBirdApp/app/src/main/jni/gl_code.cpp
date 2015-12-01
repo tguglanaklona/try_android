@@ -134,6 +134,7 @@ void DrawGLScene(){// Here's Where We Do All The Drawing
     gl_draw glDraw(&globalScene, &gvPositionHandle);
 
     glDraw.drawBarriers();
+    bool theEnd = glDraw.drawBird();
 
 
 
@@ -147,6 +148,13 @@ void DrawGLScene(){// Here's Where We Do All The Drawing
     glDrawArrays(GL_TRIANGLES, 0, 3);
     checkGlError("glDrawArrays");
      */
+}
+
+void onTouch(float x, float y){
+    FlappyCircle* pBird = globalScene.bird();
+    if (pBird){
+        pBird->mGlobalCenter.mY += 0.02f;//
+    }
 }
 
 void renderFrame() {// implements onDrawFrame
@@ -169,6 +177,7 @@ void renderFrame() {// implements onDrawFrame
 extern "C" {
     JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_init(JNIEnv * env, jobject obj,  jint width, jint height);
     JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_step(JNIEnv * env, jobject obj);
+    JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_touch(JNIEnv * env, jobject obj, jfloat x, jfloat y);
 };
 
 JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_init(JNIEnv * env, jobject obj,  jint width, jint height) // onSurfaceChanged
@@ -179,4 +188,9 @@ JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_init(JNIEnv * env, jobj
 JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_step(JNIEnv * env, jobject obj) // onDrawFrame
 {
     renderFrame();
+}
+
+JNIEXPORT void JNICALL Java_com_android_gl2jni_GL2JNILib_touch(JNIEnv * env, jobject obj, jfloat x, jfloat y) //onTouchEvent
+{
+    onTouch(x, y);
 }

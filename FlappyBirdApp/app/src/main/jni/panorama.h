@@ -42,8 +42,9 @@ public:
 
     //TListItemOf<BarrierRect>* firstBarrier() const;
     TListOf<BarrierRect>* barriers() const;
+    FlappyCircle* bird() const;
 
-public: //geometry
+public: // geometry
     void randLastBarrier();
     GLfloat getRndLastBarrierSpace();
     GLfloat getRndLastBarrierWidth();

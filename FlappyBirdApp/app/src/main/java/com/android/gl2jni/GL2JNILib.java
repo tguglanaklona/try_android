@@ -29,5 +29,6 @@ public class GL2JNILib {
      * @param height the current view height
      */
      public static native void init(int width, int height); // Java_com_android_gl2jni_GL2JNILib_init
-     public static native void step(); // Java_com_android_gl2jni_GL2JNILib_step
+     public static native void step();  // Java_com_android_gl2jni_GL2JNILib_step
+     public static native void touch(float x, float y); // Java_com_android_gl2jni_GL2JNILib_touch
 }

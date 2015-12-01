@@ -36,6 +36,15 @@ public:
 
     GLfloat mRadius;
     PntR2 mGlobalCenter;
+
+//pre-calc
+private:
+    //we can save more positions or not
+    GLfloat *pGLVertices;
+    unsigned int calcDrawVertices();
+
+public:
+    const GLfloat* glDrawVertices(bool, unsigned int* out = NULL);
 };
 
 class BarrierRect { //Rectangle barrier (частный случай пересечения - быстрый)
@@ -54,7 +63,7 @@ public:
 
 //pre-calc
 private:
-    GLfloat *pGL5Vertices;
+    GLfloat *pGL4Vertices;
     void calcDrawVertices();
 
 public:
