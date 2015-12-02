@@ -11,7 +11,7 @@ Panorama::Panorama() : mpFlappyBird(NULL), mplstRectBarriers(NULL){  // first ti
     mBirdRadius = 0.10f;              //units
     mBirdJump = 1.5f*mBirdRadius;
     mBarrierLimits.minWidth = 0.03f;  // units
-    mBarrierLimits.maxWidth = 0.30f;//10f;  // units
+    mBarrierLimits.maxWidth = 0.10f;  // units
     mBarrierLimits.minLastSpace = 3.0f*mBarrierLimits.maxWidth;
     mBarrierLimits.maxLastSpace = 7.0f*mBarrierLimits.maxWidth;
     mBarrierLimits.minHeight = 0.03f; // units

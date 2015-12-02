@@ -219,48 +219,50 @@ void BarrierRect::calcDrawVertices() {
 bool circRectIntersect(const FlappyCircle* pCirc, BarrierRect* pRect){
     PntR2 O(pCirc->mGlobalCenter);
 
-    const Side* side4 = pRect->getSides(1); //one flow - two sides can be intersected
-    Side side = side4[1];//top
+    const Side* side4 = pRect->getSides(1);
+    for (int is = 0; is<2; is++) { //one flow - two sides can be intersected
+        Side side = side4[is];
 
-    PntR2 A(side.mPnt);
-    PntR2 OAVector(A - O);
-    PntR2 lVector(side.mVec);
+        PntR2 A(side.mPnt);
+        PntR2 OAVector(A - O);
+        PntR2 lVector(side.mVec);
 
-    //orthogonal vector is -[OA x l] x l = p
-    PntR2 p = OAVector.doublevector_product(lVector)*(-1.0);
-    GLfloat norm = p.length();
-    GLfloat proj = 0.0;
-    if (norm > 0.00001f) {// eps, or 0.01*mGlobalVelocity
-        p = p / norm;
+        //orthogonal vector is -[OA x l] x l = p
+        PntR2 p = OAVector.doublevector_product(lVector) * (-1.0);
+        GLfloat norm = p.length();
+        GLfloat proj = 0.0;
+        if (norm > 0.00001f) {// eps, or 0.01*mGlobalVelocity
+            p = p / norm;
 
-        //projection value is (OA, p/||p||)
-        proj = OAVector.scalar_product(p);
-    }
-    else{
-        p = PntR2(0.0f, 0.0f);
-    }
+            //projection value is (OA, p/||p||)
+            proj = OAVector.scalar_product(p);
+        }
+        else {
+            p = PntR2(0.0f, 0.0f);
+        }
 
-    //bird's radius must be no more than projection value,
-    //     otherwise - the circle intersects current side (line)
-    GLfloat radius = pCirc->mRadius;
-    if (proj-radius<0.0f) {
+        //bird's radius must be no more than projection value,
+        //     otherwise - the circle intersects current side (line)
+        GLfloat radius = pCirc->mRadius;
+        if (proj - radius < 0.0f) {
 
-        //fits piece of side:
-        //     side-sector includes one of intersection points
-        GLfloat x = (GLfloat)sqrt(radius*radius - proj*proj);
-        norm = lVector.length();
-        PntR2 intersectionl = p * proj + (lVector / norm) * x;//left limit
-        PntR2 intersectionr = p * proj - (lVector / norm) * x;//right limit
+            //fits piece of side:
+            //     side-sector includes one of intersection points
+            GLfloat x = (GLfloat) sqrt(radius * radius - proj * proj);
+            norm = lVector.length();
+            PntR2 intersectionl = p * proj + (lVector / norm) * x;//left limit
+            PntR2 intersectionr = p * proj - (lVector / norm) * x;//right limit
 
-        if (((OAVector + lVector - intersectionl).scalar_product(OAVector - intersectionl) <= 0.0f) ||
-            ((OAVector + lVector - intersectionr).scalar_product(OAVector - intersectionr) <= 0.0f)){//opposite way
-            //LOGI("TRUE");
-            return true;
+            if (((OAVector + lVector - intersectionl).scalar_product(OAVector - intersectionl) <= 0.0f) ||
+                ((OAVector + lVector - intersectionr).scalar_product(OAVector - intersectionr) <= 0.0f)){//opposite way
+                //LOGI("TRUE");
+                return true;
+            }
         }
     }
-
     return false;
 }
+
 
 /*LOGI("A: %f, %f; O: %f, %f\n", pRect->mGlobalVertex.mX, pRect->mGlobalVertex.mY, pCirc->mGlobalCenter.mX, pCirc->mGlobalCenter.mY);
     LOGI("A: %f, %f; OA: %f, %f\n", A.mX, A.mY, OAVector.mX, OAVector.mY);
@@ -269,6 +271,14 @@ bool circRectIntersect(const FlappyCircle* pCirc, BarrierRect* pRect){
     LOGI("proj: %f\n", projjjj);
     LOGI("abs proj: %f\n", abs(projjjj));
     LOGI("Radius: %f\n", pCirc->mRadius);
+*/
+
+/*LOGI("O: %f, %f\n", O.mX, O.mY); LOGI("A: %f, %f\n", A.mX, A.mY);
+            LOGI("L, H: %f, %f\n", pRect->mL, pRect->mH);
+            LOGI("x: %f; lVector: %f, %f\n", x, lVector.mX, lVector.mY);
+            LOGI("proj: %f; p: %f, %f\n", proj, p.mX, p.mY);
+            LOGI("intersectionr: %f, %f\n", intersectionr.mX, intersectionr.mY);
+            LOGI("OAVector: %f, %f\n", OAVector.mX, OAVector.mY);
 */
 
 /*Side BarrierRect::getTopSide() const{
@@ -324,10 +334,3 @@ Side::Side(PntR2 point, PntR2 vector)//, GLfloat mnX, GLfloat mxX, GLfloat mnY, 
 }
 */
 
-/*LOGI("O: %f, %f\n", O.mX, O.mY); LOGI("A: %f, %f\n", A.mX, A.mY);
-            LOGI("L, H: %f, %f\n", pRect->mL, pRect->mH);
-            LOGI("x: %f; lVector: %f, %f\n", x, lVector.mX, lVector.mY);
-            LOGI("proj: %f; p: %f, %f\n", proj, p.mX, p.mY);
-            LOGI("intersectionr: %f, %f\n", intersectionr.mX, intersectionr.mY);
-            LOGI("OAVector: %f, %f\n", OAVector.mX, OAVector.mY);
-*/
