@@ -30,14 +30,6 @@ TList::~TList ()
 
 void TList::Clear()
 {
-/*
-  TListItem* pItem = First();
-  while (pItem) {
-    TListItem* prevItem = pItem;
-    pItem = pItem->Next();
-    delete prevItem;
-  }
-*/
     TListItem * pItem = Last();
     while (pItem) {
         TListItem * nextItem = pItem;

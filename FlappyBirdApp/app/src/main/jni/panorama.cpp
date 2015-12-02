@@ -6,7 +6,14 @@
 #include "panorama.h"
 #endif
 
-Panorama::Panorama() : mpFlappyBird(NULL), mplstRectBarriers(NULL){  // first time initialization here
+Panorama::Panorama() : mpFlappyBird(NULL), mplstRectBarriers(NULL){
+    newOne();
+};
+
+void Panorama::newOne(){ //  first time initialization here
+    if (mpFlappyBird) {delete(mpFlappyBird); mpFlappyBird = NULL;}
+    if (mplstRectBarriers) {delete(mplstRectBarriers); mplstRectBarriers = NULL;}
+
     // parameters initialization
     mBirdRadius = 0.10f;              //units
     mBirdJump = 1.5f*mBirdRadius;
@@ -26,7 +33,7 @@ Panorama::Panorama() : mpFlappyBird(NULL), mplstRectBarriers(NULL){  // first ti
     appendBarrier(barrierRect);
     BarrierRect barrierRec2(PntR2(0.5f, -1.0f), mBarrierLimits.minWidth, mBarrierLimits.maxHeight);
     appendBarrier(barrierRec2);
-};
+}
 
 Panorama::~Panorama(){
     if (mpFlappyBird) delete(mpFlappyBird);
@@ -81,15 +88,15 @@ void Panorama::randLastBarrierHeight(){
     if ((mRndLastBarrierHeight <= 0.0f) || (mRndLastBarrierHeight >= 1.0f)) mRndLastBarrierHeight = 0.25f;
 }
 
-GLfloat Panorama::getRndLastBarrierSpace(){
+GLfloat Panorama::getRndLastBarrierSpace() const{
     return mRndLastBarrierSpace;
 }
 
-GLfloat Panorama::getRndLastBarrierWidth(){
+GLfloat Panorama::getRndLastBarrierWidth() const{
     return mRndLastBarrierWidth;
 }
 
-GLfloat Panorama::getRndLastBarrierHeight(){
+GLfloat Panorama::getRndLastBarrierHeight() const{
     return mRndLastBarrierHeight;
 }
 

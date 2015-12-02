@@ -57,10 +57,10 @@ bool gl_draw::drawBird(){
 
     // if The End
     if ((pTheBird->getTopY() >= 1.0)||(pTheBird->getBottomY() <= -1.0)){
-        return false;
+        return true;
     }
     if (mpScene->isIntersection()){
-        return false;
+        return true;
     }
 
     //can draw with scaling ((f) paint)
@@ -71,7 +71,7 @@ bool gl_draw::drawBird(){
     checkGlError("glEnableVertexAttribArray");
     glDrawArrays(GL_TRIANGLE_FAN, 0, n);
     checkGlError("glDrawArrays");
-    return true;
+    return false;
 }
 
 void gl_draw::onTouch(GLfloat x, GLfloat y) /* x, y - unused */{

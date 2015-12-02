@@ -27,6 +27,7 @@ class Panorama { // just repository (otherwise can operate with global objects)
 public:
     Panorama(); // first time initialization here
     ~Panorama();
+    void newOne();
 
 private:
     FlappyCircle* mpFlappyBird;
@@ -48,9 +49,9 @@ public:
 
 public: // geometry
     void randLastBarrier();
-    GLfloat getRndLastBarrierSpace();
-    GLfloat getRndLastBarrierWidth();
-    GLfloat getRndLastBarrierHeight();
+    GLfloat getRndLastBarrierSpace() const;
+    GLfloat getRndLastBarrierWidth() const;
+    GLfloat getRndLastBarrierHeight() const;
     BarrierLimits mBarrierLimits; //Barrier limits
     GLfloat mBirdRadius;          //Bird limits
     GLfloat mBirdJump;

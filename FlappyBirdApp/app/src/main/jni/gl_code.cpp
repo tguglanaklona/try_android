@@ -105,6 +105,7 @@ GLuint createProgram(const char* pVertexSource, const char* pFragmentSource) {
 GLuint gProgram;
 GLuint gvPositionHandle;
 gl_draw glDraw(&globalScene, &gvPositionHandle);
+int gEndTimer = 0; int gEndTime = 100;
 
 bool setupGraphics(int w, int h) {// implements onSurfaceChanged
     printGLString("Version", GL_VERSION);
@@ -134,10 +135,22 @@ void DrawGLScene(){// Here's Where We Do All The Drawing
 
     //gl_draw glDraw(&globalScene, &gvPositionHandle);
 
-    glDraw.drawBarriers();
-    bool theEnd = glDraw.drawBird();
+    if (!gEndTimer){
+        glDraw.drawBarriers();
+        bool theEnd = glDraw.drawBird();
 
-
+        if (theEnd) {
+            //recreate our opengl scene
+            globalScene.newOne();
+            glDraw = gl_draw(&globalScene, &gvPositionHandle);
+            gEndTimer++;
+            return;
+        }
+    }
+    else{
+        gEndTimer++;
+        if (gEndTimer >= gEndTime) gEndTimer = 0;
+    }
 
     /*
      * test triangle
@@ -152,7 +165,12 @@ void DrawGLScene(){// Here's Where We Do All The Drawing
 }
 
 void onTouch(float x, float y){
-    glDraw.onTouch(x, y);
+    if (!gEndTimer) {
+        glDraw.onTouch(x, y);
+    }
+    else{
+        gEndTimer = 0;
+    }
 }
 
 void renderFrame() {// implements onDrawFrame
