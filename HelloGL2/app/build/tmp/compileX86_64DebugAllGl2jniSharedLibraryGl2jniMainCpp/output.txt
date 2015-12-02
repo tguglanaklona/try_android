@@ -1,4 +1,0 @@
-See file:///C:/Users/HP/AndroidStudioProjects/HelloGL2/app/build/tmp/compileX86_64DebugAllGl2jniSharedLibraryGl2jniMainCpp/output.txt for all output for compileX86_64DebugAllGl2jniSharedLibraryGl2jniMainCpp.
-compiling gl_code.cpp successful.
-
-Finished compileX86_64DebugAllGl2jniSharedLibraryGl2jniMainCpp, see full log file:///C:/Users/HP/AndroidStudioProjects/HelloGL2/app/build/tmp/compileX86_64DebugAllGl2jniSharedLibraryGl2jniMainCpp/output.txt.

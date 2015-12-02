@@ -51,11 +51,15 @@ void gl_draw::drawBarriers(){
     }
 }
 
-bool gl_draw::drawBird() {
+bool gl_draw::drawBird(){
     FlappyCircle* pTheBird = mpScene->bird();
     pTheBird->mGlobalCenter.mY -= mBirdVelocity;
 
-    if (pTheBird->mGlobalCenter.mY - pTheBird->mRadius <= -1.0){ //the end
+    // if The End
+    if ((pTheBird->getTopY() >= 1.0)||(pTheBird->getBottomY() <= -1.0)){
+        return false;
+    }
+    if (mpScene->isIntersection()){
         return false;
     }
 
@@ -69,3 +73,11 @@ bool gl_draw::drawBird() {
     checkGlError("glDrawArrays");
     return true;
 }
+
+void gl_draw::onTouch(GLfloat x, GLfloat y) /* x, y - unused */{
+    FlappyCircle* pBird = mpScene->bird();
+    if (!pBird) return;
+    pBird->mGlobalCenter.mY += mpScene->mBirdJump;
+}
+
+

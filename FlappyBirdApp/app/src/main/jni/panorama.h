@@ -44,6 +44,8 @@ public:
     TListOf<BarrierRect>* barriers() const;
     FlappyCircle* bird() const;
 
+    bool isIntersection() const;
+
 public: // geometry
     void randLastBarrier();
     GLfloat getRndLastBarrierSpace();
@@ -51,6 +53,7 @@ public: // geometry
     GLfloat getRndLastBarrierHeight();
     BarrierLimits mBarrierLimits; //Barrier limits
     GLfloat mBirdRadius;          //Bird limits
+    GLfloat mBirdJump;
 
 private:
     GLfloat mRndLastBarrierSpace;

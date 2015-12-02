@@ -104,6 +104,7 @@ GLuint createProgram(const char* pVertexSource, const char* pFragmentSource) {
 
 GLuint gProgram;
 GLuint gvPositionHandle;
+gl_draw glDraw(&globalScene, &gvPositionHandle);
 
 bool setupGraphics(int w, int h) {// implements onSurfaceChanged
     printGLString("Version", GL_VERSION);
@@ -131,7 +132,7 @@ bool setupGraphics(int w, int h) {// implements onSurfaceChanged
 
 void DrawGLScene(){// Here's Where We Do All The Drawing
 
-    gl_draw glDraw(&globalScene, &gvPositionHandle);
+    //gl_draw glDraw(&globalScene, &gvPositionHandle);
 
     glDraw.drawBarriers();
     bool theEnd = glDraw.drawBird();
@@ -151,10 +152,7 @@ void DrawGLScene(){// Here's Where We Do All The Drawing
 }
 
 void onTouch(float x, float y){
-    FlappyCircle* pBird = globalScene.bird();
-    if (pBird){
-        pBird->mGlobalCenter.mY += 0.02f;//
-    }
+    glDraw.onTouch(x, y);
 }
 
 void renderFrame() {// implements onDrawFrame

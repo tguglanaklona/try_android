@@ -9,8 +9,9 @@
 Panorama::Panorama() : mpFlappyBird(NULL), mplstRectBarriers(NULL){  // first time initialization here
     // parameters initialization
     mBirdRadius = 0.10f;              //units
+    mBirdJump = 1.5f*mBirdRadius;
     mBarrierLimits.minWidth = 0.03f;  // units
-    mBarrierLimits.maxWidth = 0.10f;  // units
+    mBarrierLimits.maxWidth = 0.30f;//10f;  // units
     mBarrierLimits.minLastSpace = 3.0f*mBarrierLimits.maxWidth;
     mBarrierLimits.maxLastSpace = 7.0f*mBarrierLimits.maxWidth;
     mBarrierLimits.minHeight = 0.03f; // units
@@ -90,4 +91,19 @@ GLfloat Panorama::getRndLastBarrierWidth(){
 
 GLfloat Panorama::getRndLastBarrierHeight(){
     return mRndLastBarrierHeight;
+}
+
+bool Panorama::isIntersection() const{
+    GLfloat rightLim = mpFlappyBird->getRightX();
+    for (TListItemOf<BarrierRect>* pBarrier = mplstRectBarriers->First(); pBarrier; pBarrier = pBarrier->Next()) {
+        BarrierRect* pB = &(pBarrier->m_value);
+
+        GLfloat leftLim = pB->mGlobalVertex.mX - pB->mL;
+        if (leftLim - rightLim > 0.0)
+            break;
+
+        if (circRectIntersect(mpFlappyBird, pB))
+            return true;
+    }
+    return false;
 }

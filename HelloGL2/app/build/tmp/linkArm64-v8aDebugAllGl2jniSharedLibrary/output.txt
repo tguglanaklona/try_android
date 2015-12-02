@@ -1,4 +1,0 @@
-See file:///C:/Users/HP/AndroidStudioProjects/HelloGL2/app/build/tmp/linkArm64-v8aDebugAllGl2jniSharedLibrary/output.txt for all output for linkArm64-v8aDebugAllGl2jniSharedLibrary.
-linking libgl2jni.so successful.
-
-Finished linkArm64-v8aDebugAllGl2jniSharedLibrary, see full log file:///C:/Users/HP/AndroidStudioProjects/HelloGL2/app/build/tmp/linkArm64-v8aDebugAllGl2jniSharedLibrary/output.txt.

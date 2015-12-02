@@ -10,17 +10,6 @@
 #include "panorama.h"
 #endif
 
-#include <android/log.h>
-#define  LOG_TAG    "libgl2jni"
-#define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
-#define  LOGE(...)  __android_log_print(ANDROID_LOG_ERROR,LOG_TAG,__VA_ARGS__)
-
-static void checkGlError(const char* op) {
-    for (GLint error = glGetError(); error; error = glGetError()) {
-        LOGI("after %s() glError (0x%x)\n", op, error);
-    }
-}
-
 class gl_draw {
 public:
     gl_draw(Panorama* pgScene, GLuint* pgvPositionHandle);
@@ -29,6 +18,8 @@ public:
 
     void drawBarriers();
     bool drawBird();
+
+    void onTouch(GLfloat, GLfloat);
 
 private:
     Panorama* mpScene;
