@@ -13,9 +13,7 @@ const GLfloat gTriangleVertices[] = { 0.0f, 0.5f, -0.5f, -0.5f, //test triangle
 #include "gl_draw.h"
 #endif
 
-Panorama globalScene;
-
-GLsizei gViewportWidth  = 0;
-GLsizei gViewportHeight = 0;
+//GLsizei gViewportWidth  = 0;
+//GLsizei gViewportHeight = 0;
 
 #endif //FLAPPYBIRDAPP_GL_CODE_H

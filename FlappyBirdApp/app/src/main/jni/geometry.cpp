@@ -71,23 +71,25 @@ Side::Side(PntR2 point, PntR2 vector)
 
 FlappyCircle::FlappyCircle(const FlappyCircle& c){
     mGlobalCenter = c.mGlobalCenter; mRadius = c.mRadius;
+    mpGLVertices = NULL;
 }
 
 void FlappyCircle::operator=(const FlappyCircle& c){
     mGlobalCenter = c.mGlobalCenter; mRadius = c.mRadius;
+    mpGLVertices = NULL;
 }
 
 FlappyCircle::~FlappyCircle() {
     if (mpGLVertices) delete (mpGLVertices);
 }
 
-bool FlappyCircle::isEmpty(){
+bool FlappyCircle::isEmpty() const{
     return (mGlobalCenter.mX == 0.0f)&&(mGlobalCenter.mY == 0.0f)&&(mRadius == 0.0f);
 }
 
 unsigned int FlappyCircle::calcDrawVertices(){
     if (mpGLVertices){ delete (mpGLVertices); mpGLVertices = NULL; }
-    unsigned int outVertices = 14;
+    unsigned int outVertices = 18;
     mpGLVertices = new GLfloat[outVertices*2];
     mpGLVertices[0]=mGlobalCenter.mX;
     mpGLVertices[1]=mGlobalCenter.mY;
@@ -99,38 +101,50 @@ unsigned int FlappyCircle::calcDrawVertices(){
     mpGLVertices[4]=mGlobalCenter.mX + mRadius*0.5f;
     mpGLVertices[5]=mGlobalCenter.mY + mRadius*0.5f*sqrt(3.0f);
 
-    mpGLVertices[6]=mGlobalCenter.mX + mRadius*0.5f*sqrt(3.0f);
-    mpGLVertices[7]=mGlobalCenter.mY + mRadius*0.5f;
+    mpGLVertices[6]=mGlobalCenter.mX + mRadius*0.5f*sqrt(2.0f);
+    mpGLVertices[7]=mGlobalCenter.mY + mRadius*0.5f*sqrt(2.0f);
 
-    mpGLVertices[8]=mGlobalCenter.mX + mRadius;
-    mpGLVertices[9]=mGlobalCenter.mY;
+    mpGLVertices[8]=mGlobalCenter.mX + mRadius*0.5f*sqrt(3.0f);
+    mpGLVertices[9]=mGlobalCenter.mY + mRadius*0.5f;
 
-    mpGLVertices[10]=mGlobalCenter.mX + mRadius*0.5f*sqrt(3.0f);
-    mpGLVertices[11]=mGlobalCenter.mY - mRadius*0.5f;
+    mpGLVertices[10]=mGlobalCenter.mX + mRadius;
+    mpGLVertices[11]=mGlobalCenter.mY;
 
-    mpGLVertices[12]=mGlobalCenter.mX + mRadius*0.5f;
-    mpGLVertices[13]=mGlobalCenter.mY - mRadius*0.5f*sqrt(3.0f);
+    mpGLVertices[12]=mGlobalCenter.mX + mRadius*0.5f*sqrt(3.0f);
+    mpGLVertices[13]=mGlobalCenter.mY - mRadius*0.5f;
 
-    mpGLVertices[14]=mGlobalCenter.mX;
-    mpGLVertices[15]=mGlobalCenter.mY - mRadius;
+    mpGLVertices[14]=mGlobalCenter.mX + mRadius*0.5f*sqrt(2.0f);
+    mpGLVertices[15]=mGlobalCenter.mY - mRadius*0.5f*sqrt(2.0f);
 
-    mpGLVertices[16]=mGlobalCenter.mX - mRadius*0.5f;
+    mpGLVertices[16]=mGlobalCenter.mX + mRadius*0.5f;
     mpGLVertices[17]=mGlobalCenter.mY - mRadius*0.5f*sqrt(3.0f);
 
-    mpGLVertices[18]=mGlobalCenter.mX - mRadius*0.5f*sqrt(3.0f);
-    mpGLVertices[19]=mGlobalCenter.mY - mRadius*0.5f;
+    mpGLVertices[18]=mGlobalCenter.mX;
+    mpGLVertices[19]=mGlobalCenter.mY - mRadius;
 
-    mpGLVertices[20]=mGlobalCenter.mX - mRadius;
-    mpGLVertices[21]=mGlobalCenter.mY;
+    mpGLVertices[20]=mGlobalCenter.mX - mRadius*0.5f;
+    mpGLVertices[21]=mGlobalCenter.mY - mRadius*0.5f*sqrt(3.0f);
 
-    mpGLVertices[22]=mGlobalCenter.mX - mRadius*0.5f*sqrt(3.0f);
-    mpGLVertices[23]=mGlobalCenter.mY + mRadius*0.5f;
+    mpGLVertices[22]=mGlobalCenter.mX - mRadius*0.5f*sqrt(2.0f);
+    mpGLVertices[23]=mGlobalCenter.mY - mRadius*0.5f*sqrt(2.0f);
 
-    mpGLVertices[24]=mGlobalCenter.mX - mRadius*0.5f;
-    mpGLVertices[25]=mGlobalCenter.mY + mRadius*0.5f*sqrt(3.0f);
+    mpGLVertices[24]=mGlobalCenter.mX - mRadius*0.5f*sqrt(3.0f);
+    mpGLVertices[25]=mGlobalCenter.mY - mRadius*0.5f;
 
-    mpGLVertices[26]=mGlobalCenter.mX;
-    mpGLVertices[27]=mGlobalCenter.mY + mRadius;
+    mpGLVertices[26]=mGlobalCenter.mX - mRadius;
+    mpGLVertices[27]=mGlobalCenter.mY;
+
+    mpGLVertices[28]=mGlobalCenter.mX - mRadius*0.5f*sqrt(3.0f);
+    mpGLVertices[29]=mGlobalCenter.mY + mRadius*0.5f;
+
+    mpGLVertices[30]=mGlobalCenter.mX - mRadius*0.5f*sqrt(2.0f);
+    mpGLVertices[31]=mGlobalCenter.mY + mRadius*0.5f*sqrt(2.0f);
+
+    mpGLVertices[32]=mGlobalCenter.mX - mRadius*0.5f;
+    mpGLVertices[33]=mGlobalCenter.mY + mRadius*0.5f*sqrt(3.0f);
+
+    mpGLVertices[34]=mGlobalCenter.mX;
+    mpGLVertices[35]=mGlobalCenter.mY + mRadius;
 
     return outVertices;
 }
@@ -159,15 +173,15 @@ BarrierRect::~BarrierRect(){
 
 BarrierRect::BarrierRect(const BarrierRect& c){
     mGlobalVertex = c.mGlobalVertex; mL = c.mL; mH = c.mH;
-    calcSides();
+    calcSides(); mpGL4Vertices = NULL;
 }
 
 void BarrierRect::operator=(const BarrierRect& c){
     mGlobalVertex = c.mGlobalVertex; mL = c.mL; mH = c.mH;
-    calcSides();
+    calcSides(); mpGL4Vertices = NULL;
 }
 
-bool BarrierRect::isEmpty(){
+bool BarrierRect::isEmpty() const{
     return (mGlobalVertex.mX == 0.0f)&&(mGlobalVertex.mY == 0.0f)&&(mL == 0.0f)&&(mH == 0.0);
 }
 

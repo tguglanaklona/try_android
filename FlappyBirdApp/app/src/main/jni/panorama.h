@@ -1,6 +1,6 @@
 //
-// All screen objects are saved on [-1; 1]x[-1; 1] grid.
-// Then they are drawn by OpenGL SE in DrawGLScene()
+// All screen objects are saved here (with no grid) and controlled by gl_draw.
+// They are drawn by OpenGL SE in DrawGLScene() function.
 //
 
 #ifndef FLAPPYBIRDAPP_PANORAMA_H
@@ -25,9 +25,9 @@ struct BarrierLimits{
 
 class Panorama { // just repository (otherwise can operate with global objects)
 public:
-    Panorama(); // first time initialization here
+    Panorama(PntR2& flappyCenter); // first time initialization here
     ~Panorama();
-    void newOne();
+    void newOne(PntR2&);
 
 private:
     FlappyCircle* mpFlappyBird;

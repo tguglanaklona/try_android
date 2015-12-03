@@ -1,19 +1,16 @@
 //
-// Created by HP on 29.11.2015.
+// panorama.cpp
 //
 
 #ifndef FLAPPYBIRDAPP_PANORAMA_H
 #include "panorama.h"
 #endif
 
-Panorama::Panorama() : mpFlappyBird(NULL), mplstRectBarriers(NULL){
-    newOne();
+Panorama::Panorama(PntR2& flappyCenter) : mpFlappyBird(NULL), mplstRectBarriers(NULL){
+    newOne(flappyCenter);
 };
 
-void Panorama::newOne(){ //  first time initialization here
-    if (mpFlappyBird) {delete(mpFlappyBird); mpFlappyBird = NULL;}
-    if (mplstRectBarriers) {delete(mplstRectBarriers); mplstRectBarriers = NULL;}
-
+void Panorama::newOne(PntR2& flappyCenter){ // first time initialization here
     // parameters initialization
     mBirdRadius = 0.10f;              //units
     mBirdJump = 1.5f*mBirdRadius;
@@ -26,13 +23,25 @@ void Panorama::newOne(){ //  first time initialization here
     randLastBarrier();
 
     // first time initialization
-    mpFlappyBird = new FlappyCircle(PntR2(-0.75f, 0.0f), mBirdRadius);
+    //PntR2 flappyCenter(-0.75f, 0.0f);
+    if (!mpFlappyBird) {
+        mpFlappyBird = new FlappyCircle(flappyCenter, mBirdRadius);
+    }
+    else{
+        mpFlappyBird->mGlobalCenter = flappyCenter;
+        mpFlappyBird->mRadius = mBirdRadius;
+    }
 
-    mplstRectBarriers = new TListOf<BarrierRect>();
-    BarrierRect barrierRect(PntR2(0.0f, -1.0f), mBarrierLimits.maxWidth, mBarrierLimits.minHeight);
-    appendBarrier(barrierRect);
-    BarrierRect barrierRec2(PntR2(0.5f, -1.0f), mBarrierLimits.minWidth, mBarrierLimits.maxHeight);
-    appendBarrier(barrierRec2);
+    if (!mplstRectBarriers) {
+        mplstRectBarriers = new TListOf<BarrierRect>();
+    }
+    else{
+        mplstRectBarriers->Clear();
+    }
+    //BarrierRect barrierRect(PntR2(0.0f, -1.0f), mBarrierLimits.maxWidth, mBarrierLimits.minHeight);
+    //appendBarrier(b1);
+    //BarrierRect barrierRec2(PntR2(0.5f, -1.0f), mBarrierLimits.minWidth, mBarrierLimits.maxHeight);
+    //appendBarrier(b2);
 }
 
 Panorama::~Panorama(){

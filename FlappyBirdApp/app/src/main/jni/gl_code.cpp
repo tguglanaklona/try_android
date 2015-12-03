@@ -1,20 +1,6 @@
-/*
- * Copyright (C) 2009 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
+//
 // OpenGL ES 2.0 code
+//
 
 #include <jni.h>
 #include "headers.h" //GLES2
@@ -102,10 +88,13 @@ GLuint createProgram(const char* pVertexSource, const char* pFragmentSource) {
     return program;
 }
 
-GLuint gProgram;
-GLuint gvPositionHandle;
-gl_draw glDraw(&globalScene, &gvPositionHandle);
-int gEndTimer = 0; int gEndTime = 100;
+GLuint   gProgram;
+GLuint   gvPositionHandle;
+
+gl_draw  glDraw(&gvPositionHandle);
+
+int       gEndTimer = 0;
+const int gEndTime = 100;
 
 bool setupGraphics(int w, int h) {// implements onSurfaceChanged
     printGLString("Version", GL_VERSION);
@@ -124,8 +113,8 @@ bool setupGraphics(int w, int h) {// implements onSurfaceChanged
     LOGI("glGetAttribLocation(\"vPosition\") = %d\n",
             gvPositionHandle);
 
-    gViewportWidth = w;
-    gViewportHeight = h;
+    GLfloat gViewportScale = (GLfloat)w/(GLfloat)h;
+    glDraw.setScale(gViewportScale > 1.0f ? gViewportScale : 1.0f/gViewportScale);
     glViewport(0, 0, w, h);
     checkGlError("glViewport");
     return true;
@@ -133,16 +122,13 @@ bool setupGraphics(int w, int h) {// implements onSurfaceChanged
 
 void DrawGLScene(){// Here's Where We Do All The Drawing
 
-    //gl_draw glDraw(&globalScene, &gvPositionHandle);
-
     if (!gEndTimer){
         glDraw.drawBarriers();
         bool theEnd = glDraw.drawBird();
 
         if (theEnd) {
             //recreate our opengl scene
-            globalScene.newOne();
-            glDraw = gl_draw(&globalScene, &gvPositionHandle);
+            glDraw.newPanorama();
             gEndTimer++;
             return;
         }

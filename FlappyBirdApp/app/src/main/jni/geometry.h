@@ -59,15 +59,15 @@ public:
     FlappyCircle(const FlappyCircle&);
     void operator=(const FlappyCircle&);
     ~FlappyCircle();
-    bool isEmpty();
+    bool isEmpty() const;
 
     GLfloat mRadius;
     PntR2 mGlobalCenter;
 
-    GLfloat getTopY() const    {return mGlobalCenter.mY + mRadius;}
-    GLfloat getRightX() const  {return mGlobalCenter.mX + mRadius;}
+    GLfloat getTopY()    const {return mGlobalCenter.mY + mRadius;}
+    GLfloat getRightX()  const {return mGlobalCenter.mX + mRadius;}
     GLfloat getBottomY() const {return mGlobalCenter.mY - mRadius;}
-    GLfloat getLeftX() const   {return mGlobalCenter.mX - mRadius;}
+    GLfloat getLeftX()   const {return mGlobalCenter.mX - mRadius;}
 
 //pre-calc
 private:
@@ -88,7 +88,7 @@ public:
     BarrierRect(const BarrierRect&);
     void operator=(const BarrierRect&);
     ~BarrierRect();
-    bool isEmpty();
+    bool isEmpty() const;
 
     PntR2 mGlobalVertex;// Bottom right
     GLfloat mL;
