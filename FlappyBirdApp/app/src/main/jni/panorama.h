@@ -1,5 +1,5 @@
 //
-// All screen objects are saved here (with no grid) and controlled by gl_draw.
+// All screen objects are saved here (with no grid) and controlled by GlDraw.
 // They are drawn by OpenGL SE in DrawGLScene() function.
 //
 

@@ -76,7 +76,7 @@ private:
     unsigned int calcDrawVertices();
 
 public:
-    const GLfloat* glDrawVertices(bool, unsigned int* out = NULL);
+    /*const*/GLfloat* glDrawVertices(bool, unsigned int* out = NULL);
 };
 
 class BarrierRect { //Rectangle barrier
@@ -102,7 +102,7 @@ private:
     void calcSides();
 
 public:
-    const GLfloat* glDrawVertices(bool);
+    /*const*/GLfloat* glDrawVertices(bool);
     const Side* getSides(bool);
 };
 

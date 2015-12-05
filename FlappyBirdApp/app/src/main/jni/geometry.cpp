@@ -149,7 +149,7 @@ unsigned int FlappyCircle::calcDrawVertices(){
     return outVertices;
 }
 
-const GLfloat* FlappyCircle::glDrawVertices(bool bRecalc, unsigned int* outVertices/* = NULL*/){
+GLfloat* FlappyCircle::glDrawVertices(bool bRecalc, unsigned int* outVertices/* = NULL*/){
     if (bRecalc) *outVertices = calcDrawVertices();
     return mpGLVertices;
 }
@@ -204,7 +204,7 @@ void BarrierRect::calcSides(){ //mpSides can be list either
     mpSides[3] = Side(p, v);
 }
 
-const GLfloat* BarrierRect::glDrawVertices(bool bRecalc){
+GLfloat* BarrierRect::glDrawVertices(bool bRecalc){
     if (bRecalc) calcDrawVertices();
     return mpGL4Vertices;
 }

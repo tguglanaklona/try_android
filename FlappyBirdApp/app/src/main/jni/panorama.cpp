@@ -11,7 +11,7 @@ Panorama::Panorama(PntR2& flappyCenter) : mpFlappyBird(NULL), mplstRectBarriers(
 };
 
 void Panorama::newOne(PntR2& flappyCenter){ // first time initialization here
-    // parameters initialization
+    // relative parameters initialization
     mBirdRadius = 0.10f;              //units
     mBirdJump = 1.5f*mBirdRadius;
     mBarrierLimits.minWidth = 0.03f;  // units
@@ -23,7 +23,6 @@ void Panorama::newOne(PntR2& flappyCenter){ // first time initialization here
     randLastBarrier();
 
     // first time initialization
-    //PntR2 flappyCenter(-0.75f, 0.0f);
     if (!mpFlappyBird) {
         mpFlappyBird = new FlappyCircle(flappyCenter, mBirdRadius);
     }
@@ -38,10 +37,6 @@ void Panorama::newOne(PntR2& flappyCenter){ // first time initialization here
     else{
         mplstRectBarriers->Clear();
     }
-    //BarrierRect barrierRect(PntR2(0.0f, -1.0f), mBarrierLimits.maxWidth, mBarrierLimits.minHeight);
-    //appendBarrier(b1);
-    //BarrierRect barrierRec2(PntR2(0.5f, -1.0f), mBarrierLimits.minWidth, mBarrierLimits.maxHeight);
-    //appendBarrier(b2);
 }
 
 Panorama::~Panorama(){

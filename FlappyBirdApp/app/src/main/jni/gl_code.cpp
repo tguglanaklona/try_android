@@ -91,7 +91,7 @@ GLuint createProgram(const char* pVertexSource, const char* pFragmentSource) {
 GLuint   gProgram;
 GLuint   gvPositionHandle;
 
-gl_draw  glDraw(&gvPositionHandle);
+GlDraw  glDraw(&gvPositionHandle);
 
 int       gEndTimer = 0;
 const int gEndTime = 100;

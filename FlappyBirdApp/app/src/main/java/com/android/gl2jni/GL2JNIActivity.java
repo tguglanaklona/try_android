@@ -21,7 +21,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.WindowManager;
-
+import android.content.pm.ActivityInfo;
 import java.io.File;
 
 
@@ -31,6 +31,9 @@ public class GL2JNIActivity extends Activity {
 
     @Override protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
         //mView = new GL2JNIView(getApplication());
         mView = new GL2JNIView(getApplication(), true, 0, 0); //setup the GLSurfaceView sub-class
 	    setContentView(mView);

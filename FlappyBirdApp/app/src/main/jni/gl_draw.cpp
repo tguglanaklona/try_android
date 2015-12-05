@@ -4,7 +4,7 @@
 
 #include "gl_draw.h"
 
-gl_draw::gl_draw(GLuint* pgvPositionHandle):  // first time initialization here
+GlDraw::GlDraw(GLuint* pgvPositionHandle):  // first time initialization here
         mpScene(NULL), mpvPositionHandle(pgvPositionHandle), M_X(1.0f){
     mGlobalVelocity   = 0.001f;               // units/frame
     mBirdVelocity     = 3.0f*mGlobalVelocity; // units/frame
@@ -13,11 +13,11 @@ gl_draw::gl_draw(GLuint* pgvPositionHandle):  // first time initialization here
     newPanorama();
 }
 
-gl_draw::~gl_draw(){
+GlDraw::~GlDraw(){
     if (mpScene) delete(mpScene);
 }
 
-void gl_draw::newPanorama(){// first time initialization here
+void GlDraw::newPanorama(){// first time initialization here
     PntR2 flappyCenter(-0.75f, 0.0f);
     if (!mpScene){
         mpScene = new Panorama(flappyCenter);
@@ -33,23 +33,25 @@ void gl_draw::newPanorama(){// first time initialization here
     mpScene->appendBarrier(barrierRec2);
 }
 
-GLuint gl_draw::mvPositionHandle() const{
+GLuint GlDraw::mvPositionHandle() const{
     return *mpvPositionHandle;
 }
 
-void gl_draw::setScale(GLfloat scale){
+void GlDraw::setScale(GLfloat scale){
     //[-1; M_X]x[-1; 1]
     if (scale >= 1.0){
-        M_X = scale - 1.0f;
+        M_X = 2.0f*scale - 1.0f;
     }
     else{
-        M_X = 1.0f/scale - 1.0f;
+        M_X = 2.0f/scale - 1.0f;
     }
 }
 
-void gl_draw::paintBarrier(BarrierRect* pB) const{
+void GlDraw::paintBarrier(BarrierRect* pB) const{
     if (!pB) return;
-    glVertexAttribPointer(mvPositionHandle(), 2, GL_FLOAT, GL_FALSE, 0, pB->glDrawVertices(1));
+    GLfloat* pV = pB->glDrawVertices(1);
+    paintScaling(pV, 4);
+    glVertexAttribPointer(mvPositionHandle(), 2, GL_FLOAT, GL_FALSE, 0, pV);
     checkGlError("glVertexAttribPointer");
     glEnableVertexAttribArray(mvPositionHandle());
     checkGlError("glEnableVertexAttribArray");
@@ -57,13 +59,15 @@ void gl_draw::paintBarrier(BarrierRect* pB) const{
     checkGlError("glDrawArrays");
 }
 
-void gl_draw::paintTheBird(FlappyCircle* pTheBird) const{
+void GlDraw::paintTheBird(FlappyCircle* pTheBird) const{
     unsigned int n = 0;
     if (!pTheBird) {
         pTheBird = mpScene->bird();
         if (!pTheBird) return;
     }
-    glVertexAttribPointer(mvPositionHandle(), 2, GL_FLOAT, GL_FALSE, 0, pTheBird->glDrawVertices(1, &n));
+    GLfloat* pV = pTheBird->glDrawVertices(1, &n);
+    paintScaling(pV, n);
+    glVertexAttribPointer(mvPositionHandle(), 2, GL_FLOAT, GL_FALSE, 0, pV);
     checkGlError("glVertexAttribPointer");
     glEnableVertexAttribArray(mvPositionHandle());
     checkGlError("glEnableVertexAttribArray");
@@ -71,13 +75,26 @@ void gl_draw::paintTheBird(FlappyCircle* pTheBird) const{
     checkGlError("glDrawArrays");
 }
 
-void gl_draw::drawBarriers(){
+//to do
+GLfloat* GlDraw::paintScaling(GLfloat* v, unsigned int n) const{ //to do: GLfloat* v == this, some paint class: { GLfloat*, int n }, paintBird, paintBarrier
+    // x* = 0.5*(M_X+1)*x + 0.5*(M_X-1)
+    // y* = y
+    for (int i=0; i<2*n; i+=2){
+        v[i] = (2.0f/(GLfloat)(M_X+1))*v[i] - ((GLfloat)(M_X-1))/((GLfloat)(M_X+1));
+    }
+
+    return v;
+    //to do: return this
+}
+
+void GlDraw::drawBarriers(){
     TListItemOf<BarrierRect>* pFirst = mpScene->barriers()->First();
     if (!pFirst)
     {// first
-        BarrierRect newB(PntR2(1.0f, -1.0f), mpScene->getRndLastBarrierWidth(),
+        BarrierRect newB(PntR2(M_X, -1.0f), mpScene->getRndLastBarrierWidth(),
                          mpScene->getRndLastBarrierHeight());
         mpScene->appendBarrier(newB);
+        pFirst = mpScene->barriers()->First();
     }
 
     {// delete barrier
@@ -99,15 +116,15 @@ void gl_draw::drawBarriers(){
 
     {// new barrier
         GLfloat distance = mpScene->getRndLastBarrierSpace();
-        if ((1.0 - pLast->m_value.mGlobalVertex.mX) >= distance) {
+        if ((M_X - pLast->m_value.mGlobalVertex.mX) >= distance) {
             GLfloat width = mpScene->getRndLastBarrierWidth();
-            BarrierRect newB(PntR2(1.0f, -1.0f), width, mpScene->getRndLastBarrierHeight());
+            BarrierRect newB(PntR2(M_X, -1.0f), width, mpScene->getRndLastBarrierHeight());
             mpScene->appendBarrier(newB);
         }
     }
 }
 
-bool gl_draw::drawBird(){
+bool GlDraw::drawBird(){
     FlappyCircle* pTheBird = mpScene->bird();
     pTheBird->mGlobalCenter.mY -= mBirdVelocity;
 
@@ -124,7 +141,7 @@ bool gl_draw::drawBird(){
     return false;
 }
 
-void gl_draw::onTouch(GLfloat x, GLfloat y) /* x, y - unused */{
+void GlDraw::onTouch(GLfloat x, GLfloat y) /* x, y - unused */{
     FlappyCircle* pBird = mpScene->bird();
     if (!pBird) return;
     pBird->mGlobalCenter.mY += mpScene->mBirdJump;
