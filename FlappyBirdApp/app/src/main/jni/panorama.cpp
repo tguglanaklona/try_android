@@ -8,7 +8,7 @@
 
 Panorama::Panorama(PntR2& flappyCenter) : mpFlappyBird(NULL), mplstRectBarriers(NULL){
     newOne(flappyCenter);
-};
+}
 
 void Panorama::newOne(PntR2& flappyCenter){ // first time initialization here
     // relative parameters initialization

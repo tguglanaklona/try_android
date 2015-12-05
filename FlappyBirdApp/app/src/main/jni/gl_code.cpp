@@ -88,10 +88,10 @@ GLuint createProgram(const char* pVertexSource, const char* pFragmentSource) {
     return program;
 }
 
-GLuint   gProgram;
-GLuint   gvPositionHandle;
+GLuint    gProgram;
+GLuint    gvPositionHandle;
 
-GlDraw  glDraw(&gvPositionHandle);
+GlDraw    glDraw(&gvPositionHandle);
 
 int       gEndTimer = 0;
 const int gEndTime = 100;

@@ -89,62 +89,91 @@ bool FlappyCircle::isEmpty() const{
 
 unsigned int FlappyCircle::calcDrawVertices(){
     if (mpGLVertices){ delete (mpGLVertices); mpGLVertices = NULL; }
-    unsigned int outVertices = 18;
+    unsigned int outVertices = 26;
+
     mpGLVertices = new GLfloat[outVertices*2];
-    mpGLVertices[0]=mGlobalCenter.mX;
-    mpGLVertices[1]=mGlobalCenter.mY;
+    GLfloat* pGLVertices = mpGLVertices;
+    pGLVertices[0]=mGlobalCenter.mX; pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY; pGLVertices++;
+
+    float sqrt3 = (float)sqrt(3.0f);
+    float sqrt2 = (float)sqrt(2.0f);
 
     //cos, sin expanded
-    mpGLVertices[2]=mGlobalCenter.mX;
-    mpGLVertices[3]=mGlobalCenter.mY + mRadius;
+    pGLVertices[0]=mGlobalCenter.mX;                        pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY + mRadius;              pGLVertices++;
 
-    mpGLVertices[4]=mGlobalCenter.mX + mRadius*0.5f;
-    mpGLVertices[5]=mGlobalCenter.mY + mRadius*0.5f*sqrt(3.0f);
+    pGLVertices[0]=mGlobalCenter.mX + mRadius*0.258819045f; pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY + mRadius*0.965925826f; pGLVertices++;
 
-    mpGLVertices[6]=mGlobalCenter.mX + mRadius*0.5f*sqrt(2.0f);
-    mpGLVertices[7]=mGlobalCenter.mY + mRadius*0.5f*sqrt(2.0f);
+    pGLVertices[0]=mGlobalCenter.mX + mRadius*0.5f;         pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY + mRadius*0.5f*sqrt3;   pGLVertices++;
 
-    mpGLVertices[8]=mGlobalCenter.mX + mRadius*0.5f*sqrt(3.0f);
-    mpGLVertices[9]=mGlobalCenter.mY + mRadius*0.5f;
+    pGLVertices[0]=mGlobalCenter.mX + mRadius*0.5f*sqrt2;   pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY + mRadius*0.5f*sqrt2;   pGLVertices++;
 
-    mpGLVertices[10]=mGlobalCenter.mX + mRadius;
-    mpGLVertices[11]=mGlobalCenter.mY;
+    pGLVertices[0]=mGlobalCenter.mX + mRadius*0.5f*sqrt3;   pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY + mRadius*0.5f;         pGLVertices++;
 
-    mpGLVertices[12]=mGlobalCenter.mX + mRadius*0.5f*sqrt(3.0f);
-    mpGLVertices[13]=mGlobalCenter.mY - mRadius*0.5f;
+    pGLVertices[0]=mGlobalCenter.mX + mRadius*0.965925826f; pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY + mRadius*0.258819045f; pGLVertices++;
 
-    mpGLVertices[14]=mGlobalCenter.mX + mRadius*0.5f*sqrt(2.0f);
-    mpGLVertices[15]=mGlobalCenter.mY - mRadius*0.5f*sqrt(2.0f);
+    pGLVertices[0]=mGlobalCenter.mX + mRadius;              pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY;                        pGLVertices++;
 
-    mpGLVertices[16]=mGlobalCenter.mX + mRadius*0.5f;
-    mpGLVertices[17]=mGlobalCenter.mY - mRadius*0.5f*sqrt(3.0f);
+    pGLVertices[0]=mGlobalCenter.mX + mRadius*0.965925826f; pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY - mRadius*0.258819045f; pGLVertices++;
 
-    mpGLVertices[18]=mGlobalCenter.mX;
-    mpGLVertices[19]=mGlobalCenter.mY - mRadius;
+    pGLVertices[0]=mGlobalCenter.mX + mRadius*0.5f*sqrt3;   pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY - mRadius*0.5f;         pGLVertices++;
 
-    mpGLVertices[20]=mGlobalCenter.mX - mRadius*0.5f;
-    mpGLVertices[21]=mGlobalCenter.mY - mRadius*0.5f*sqrt(3.0f);
+    pGLVertices[0]=mGlobalCenter.mX + mRadius*0.5f*sqrt2;   pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY - mRadius*0.5f*sqrt2;   pGLVertices++;
 
-    mpGLVertices[22]=mGlobalCenter.mX - mRadius*0.5f*sqrt(2.0f);
-    mpGLVertices[23]=mGlobalCenter.mY - mRadius*0.5f*sqrt(2.0f);
+    pGLVertices[0]=mGlobalCenter.mX + mRadius*0.5f;         pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY - mRadius*0.5f*sqrt3;   pGLVertices++;
 
-    mpGLVertices[24]=mGlobalCenter.mX - mRadius*0.5f*sqrt(3.0f);
-    mpGLVertices[25]=mGlobalCenter.mY - mRadius*0.5f;
+    pGLVertices[0]=mGlobalCenter.mX + mRadius*0.258819045f; pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY - mRadius*0.965925826f; pGLVertices++;
 
-    mpGLVertices[26]=mGlobalCenter.mX - mRadius;
-    mpGLVertices[27]=mGlobalCenter.mY;
+    pGLVertices[0]=mGlobalCenter.mX;                        pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY - mRadius;              pGLVertices++;
 
-    mpGLVertices[28]=mGlobalCenter.mX - mRadius*0.5f*sqrt(3.0f);
-    mpGLVertices[29]=mGlobalCenter.mY + mRadius*0.5f;
+    pGLVertices[0]=mGlobalCenter.mX - mRadius*0.258819045f; pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY - mRadius*0.965925826f; pGLVertices++;
 
-    mpGLVertices[30]=mGlobalCenter.mX - mRadius*0.5f*sqrt(2.0f);
-    mpGLVertices[31]=mGlobalCenter.mY + mRadius*0.5f*sqrt(2.0f);
+    pGLVertices[0]=mGlobalCenter.mX - mRadius*0.5f;         pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY - mRadius*0.5f*sqrt3;   pGLVertices++;
 
-    mpGLVertices[32]=mGlobalCenter.mX - mRadius*0.5f;
-    mpGLVertices[33]=mGlobalCenter.mY + mRadius*0.5f*sqrt(3.0f);
+    pGLVertices[0]=mGlobalCenter.mX - mRadius*0.5f*sqrt2;   pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY - mRadius*0.5f*sqrt2;   pGLVertices++;
 
-    mpGLVertices[34]=mGlobalCenter.mX;
-    mpGLVertices[35]=mGlobalCenter.mY + mRadius;
+    pGLVertices[0]=mGlobalCenter.mX - mRadius*0.5f*sqrt3;   pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY - mRadius*0.5f;         pGLVertices++;
+
+    pGLVertices[0]=mGlobalCenter.mX - mRadius*0.965925826f; pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY - mRadius*0.258819045f; pGLVertices++;
+
+    pGLVertices[0]=mGlobalCenter.mX - mRadius;              pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY;                        pGLVertices++;
+
+    pGLVertices[0]=mGlobalCenter.mX - mRadius*0.965925826f; pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY + mRadius*0.258819045f; pGLVertices++;
+
+    pGLVertices[0]=mGlobalCenter.mX - mRadius*0.5f*sqrt3;   pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY + mRadius*0.5f;         pGLVertices++;
+
+    pGLVertices[0]=mGlobalCenter.mX - mRadius*0.5f*sqrt2;   pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY + mRadius*0.5f*sqrt2;   pGLVertices++;
+
+    pGLVertices[0]=mGlobalCenter.mX - mRadius*0.5f;         pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY + mRadius*0.5f*sqrt3;   pGLVertices++;
+
+    pGLVertices[0]=mGlobalCenter.mX - mRadius*0.258819045f; pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY + mRadius*0.965925826f; pGLVertices++;
+
+    pGLVertices[0]=mGlobalCenter.mX;                        pGLVertices++;
+    pGLVertices[0]=mGlobalCenter.mY + mRadius;
 
     return outVertices;
 }
