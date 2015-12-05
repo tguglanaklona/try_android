@@ -27,7 +27,7 @@ public:
 
     void paintBarrier(BarrierRect*) const;
     void paintTheBird(FlappyCircle* pTheBird = NULL) const;
-    GLfloat* paintScaling(GLfloat*, unsigned int) const;
+    const GLfloat* paintScaling(GLfloat*, unsigned int) const;
 
     void onTouch(GLfloat, GLfloat);
 

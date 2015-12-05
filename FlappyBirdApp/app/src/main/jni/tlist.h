@@ -11,8 +11,7 @@
 //
 // class TListItem
 //
-class TListItem
-{
+class TListItem{
 public:
     TListItem();               // Constructor of item
     virtual ~TListItem() {}
@@ -26,12 +25,10 @@ private:
     friend class TList;
 };
 
-
 typedef int  (*ConditionFunc)(TListItem *ptItem, void *par);
 typedef void (*DoFunc)       (TListItem *ptItem, void *par);
 
-
-class TList {
+class TList{
 public:
     TList();
     ~TList();
@@ -52,7 +49,7 @@ public:
     const TListItem* CLast       () const { return last; }                  // Get last  item in list
     //const TListItem* operator[](unsigned int index) const { return const_cast<TList *>(this)->operator[](index); }
 
-    unsigned int Count   () const { return counter; }               // Get number of items
+    unsigned int Count   () const { return counter; }                       // Get number of items
     int  IsEmpty         () const { return first==NULL; }
 
     TListItem *FirstThat (ConditionFunc func, void *par);
@@ -152,22 +149,6 @@ private: \
 
 ///////////////////////////////////////////////////////////
 
-/*template <class T>
-class TListItemOf : public TListItem
-{
-    typedef TListItem Inherited;
-public:
-    T m_value;
-
-    TListItemOf<T>(void) : m_value() {}
-
-    IMPLEMENT_ITEM_METHODS(TListItemOf<T>, Inherited);
-private:
-    TListItemOf<T>(const TListItemOf<T>&);
-    void operator=(const TListItemOf<T>&);
-};*/
-
-
 template <class T>
 class TListItemOf : public TListItem {
     typedef TListItem Inherited;
@@ -188,21 +169,6 @@ private:
     void operator=(const TListItemOf<T>&);
 };
 
-
-/*template <class T>
-class TListOf : public TList
-{
-    typedef TList Inherited;
-public:
-    TListOf<T>(void) {}
-
-    IMPLEMENT_LIST_METHODS(TListItemOf<T>, TListOf<T>, Inherited);
-private:
-    TListOf<T>(const TListOf<T>&);
-    void operator=(const TListOf<T>&);
-};*/
-
-
 template <class T>
 class TListOf : public TList
 {
@@ -218,18 +184,9 @@ public:
    virtual const TListItemOf<T> * CLast () const { return static_cast<const TListItemOf<T> *>(Inherited::CLast()); }
    //const TListItemOf<T> * operator[](unsigned int index) const { return static_cast<const TListItemOf<T> *>(Inherited::operator[](index)); }
 
-   //void ReLink       (TListOf<T> *list)                                { Inherited::ReLink(list); }
-   //void Append       (TListItemOf<T>* ptItem)                          { Inherited::Append(ptItem); }
-   //void DeleteItem   (TListItemOf<T>* ptItem)                          { Inherited::DeleteItem(ptItem); }
-   //void ExtractItem  (TListItemOf<T>* ptItem)                          { Inherited::ExtractItem(ptItem); }
-   //void ExchangeItems(TListItemOf<T>* ptOne, TListItemOf<T>* ptTwo)    { Inherited::ExchangeItems(ptOne, ptTwo); }
-   //void InsertBefore (TListItemOf<T>* ptBefore, TListItemOf<T>* ptNew) { Inherited::InsertBefore(ptBefore, ptNew); }
-   //void InsertAfter  (TListItemOf<T>* ptAfter,  TListItemOf<T>* ptNew) { Inherited::InsertAfter (ptAfter,  ptNew); }
-
 private:
     TListOf<T>(const TListOf<T>&);
     void operator=(const TListOf<T>&);
 };
-
 
 #endif //FLAPPYBIRDAPP_TLIST_H

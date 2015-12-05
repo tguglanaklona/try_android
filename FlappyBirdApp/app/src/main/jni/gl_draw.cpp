@@ -50,8 +50,7 @@ void GlDraw::setScale(GLfloat scale){
 void GlDraw::paintBarrier(BarrierRect* pB) const{
     if (!pB) return;
     GLfloat* pV = pB->glDrawVertices(1);
-    paintScaling(pV, 4);
-    glVertexAttribPointer(mvPositionHandle(), 2, GL_FLOAT, GL_FALSE, 0, pV);
+    glVertexAttribPointer(mvPositionHandle(), 2, GL_FLOAT, GL_FALSE, 0, paintScaling(pV, 4));
     checkGlError("glVertexAttribPointer");
     glEnableVertexAttribArray(mvPositionHandle());
     checkGlError("glEnableVertexAttribArray");
@@ -66,8 +65,7 @@ void GlDraw::paintTheBird(FlappyCircle* pTheBird) const{
         if (!pTheBird) return;
     }
     GLfloat* pV = pTheBird->glDrawVertices(1, &n);
-    paintScaling(pV, n);
-    glVertexAttribPointer(mvPositionHandle(), 2, GL_FLOAT, GL_FALSE, 0, pV);
+    glVertexAttribPointer(mvPositionHandle(), 2, GL_FLOAT, GL_FALSE, 0, paintScaling(pV, n));
     checkGlError("glVertexAttribPointer");
     glEnableVertexAttribArray(mvPositionHandle());
     checkGlError("glEnableVertexAttribArray");
@@ -75,16 +73,13 @@ void GlDraw::paintTheBird(FlappyCircle* pTheBird) const{
     checkGlError("glDrawArrays");
 }
 
-//to do
-GLfloat* GlDraw::paintScaling(GLfloat* v, unsigned int n) const{ //to do: GLfloat* v == this, some paint class: { GLfloat*, int n }, paintBird, paintBarrier
+const GLfloat* GlDraw::paintScaling(GLfloat* v, unsigned int n) const{
     // x* = 0.5*(M_X+1)*x + 0.5*(M_X-1)
     // y* = y
     for (int i=0; i<2*n; i+=2){
         v[i] = (2.0f/(GLfloat)(M_X+1))*v[i] - ((GLfloat)(M_X-1))/((GLfloat)(M_X+1));
     }
-
     return v;
-    //to do: return this
 }
 
 void GlDraw::drawBarriers(){
