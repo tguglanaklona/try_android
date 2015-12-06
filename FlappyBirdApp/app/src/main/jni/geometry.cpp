@@ -193,7 +193,7 @@ BarrierRect::BarrierRect():mGlobalVertex(), mL(0), mH(0){
 BarrierRect::BarrierRect(PntR2 globalBottomRight, GLfloat width, GLfloat height):
                          mGlobalVertex(globalBottomRight), mL(width), mH(height){
     mpGL4Vertices = NULL;
-    calcSides();
+    /*calcSides();*/
 }
 
 BarrierRect::~BarrierRect(){
@@ -202,12 +202,12 @@ BarrierRect::~BarrierRect(){
 
 BarrierRect::BarrierRect(const BarrierRect& c){
     mGlobalVertex = c.mGlobalVertex; mL = c.mL; mH = c.mH;
-    calcSides(); mpGL4Vertices = NULL;
+    /*calcSides();*/mpGL4Vertices = NULL;
 }
 
 void BarrierRect::operator=(const BarrierRect& c){
     mGlobalVertex = c.mGlobalVertex; mL = c.mL; mH = c.mH;
-    calcSides(); mpGL4Vertices = NULL;
+    /*calcSides();*/mpGL4Vertices = NULL;
 }
 
 bool BarrierRect::isEmpty() const{
@@ -223,13 +223,13 @@ void BarrierRect::calcSides(){ //mpSides can be list either
     p = PntR2(mGlobalVertex.mX - mL, mGlobalVertex.mY + mH);
     v = PntR2(mL, (GLfloat)0.0f);
     mpSides[1] = Side(p, v);
-    //right
-    p = PntR2(mGlobalVertex.mX, mGlobalVertex.mY);
-    v = PntR2((GLfloat)0.0f, mH);
-    mpSides[2] = Side(p, v);
     //bottom
     p = PntR2(mGlobalVertex.mX - mL, mGlobalVertex.mY);
     v = PntR2(mL, (GLfloat)0.0f);
+    mpSides[2] = Side(p, v);
+    //right
+    p = PntR2(mGlobalVertex.mX, mGlobalVertex.mY);
+    v = PntR2((GLfloat)0.0f, mH);
     mpSides[3] = Side(p, v);
 }
 
@@ -263,7 +263,7 @@ bool circRectIntersect(const FlappyCircle* pCirc, BarrierRect* pRect){
     PntR2 O(pCirc->mGlobalCenter);
 
     const Side* side4 = pRect->getSides(1);
-    for (int is = 0; is<2; is++) { //one flow - two sides can be intersected
+    for (int is = 0; is<3; is++) { //one flow - three sides can be intersected
         Side side = side4[is];
 
         PntR2 A(side.mPnt);
@@ -298,7 +298,6 @@ bool circRectIntersect(const FlappyCircle* pCirc, BarrierRect* pRect){
 
             if (((OAVector + lVector - intersectionl).scalar_product(OAVector - intersectionl) <= 0.0f) ||
                 ((OAVector + lVector - intersectionr).scalar_product(OAVector - intersectionr) <= 0.0f)){//opposite way
-                //LOGI("TRUE");
                 return true;
             }
         }
@@ -322,58 +321,5 @@ bool circRectIntersect(const FlappyCircle* pCirc, BarrierRect* pRect){
             LOGI("proj: %f; p: %f, %f\n", proj, p.mX, p.mY);
             LOGI("intersectionr: %f, %f\n", intersectionr.mX, intersectionr.mY);
             LOGI("OAVector: %f, %f\n", OAVector.mX, OAVector.mY);
-*/
-
-/*Side BarrierRect::getTopSide() const{
-    PntR2 p(mGlobalVertex.mX - mL, mGlobalVertex.mY + mH);
-    PntR2 v(mL, (GLfloat)0.0f);
-    return Side(p,v);
-}
-
-Side BarrierRect::getBottomSide() const{
-    PntR2 p(mGlobalVertex.mX - mL, mGlobalVertex.mY);
-    PntR2 v(mL, (GLfloat)0.0f);
-    return Side(p,v);
-}
-
-Side BarrierRect::getLeftSide() const{
-    PntR2 p(mGlobalVertex.mX - mL, mGlobalVertex.mY);
-    PntR2 v((GLfloat)0.0f, mH);
-    return Side(p,v);
-}
-
-Side BarrierRect::getRightSide() const{
-    PntR2 p(mGlobalVertex.mX, mGlobalVertex.mY);
-    PntR2 v((GLfloat)0.0f, mH);
-    return Side(p,v);
-}
-*/
-/*
-Side::Side(PntR2 point, PntR2 vector)//, GLfloat mnX, GLfloat mxX, GLfloat mnY, GLfloat mxY)
-        :LineR2(point, vector){
-    if ((mnX == 0)&&(mnY == 0)&&(mxX == 0)&&(mxY == 0)){
-        //calc and save Limits
-        minX = point.mX;
-        minY = point.mY;
-        maxX = point.mX + vector.mX;
-        maxY = point.mY + vector.mY;
-    }
-    else{
-        minX = mnX; minY = mnY;
-        maxX = mxX; maxY = mxY;
-    }
-
-    //check
-    if (mnX > mxX){
-        GLfloat temp = minX;
-        minX = maxX;
-        maxX = temp;
-    }
-    if (mnY > mxY){
-        GLfloat temp = minY;
-        minY = maxY;
-        maxY = temp;
-    }
-}
 */
 

@@ -16,10 +16,10 @@ void Panorama::newOne(PntR2& flappyCenter){ // first time initialization here
     mBirdJump = 1.5f*mBirdRadius;
     mBarrierLimits.minWidth = 0.03f;  // units
     mBarrierLimits.maxWidth = 0.10f;  // units
-    mBarrierLimits.minLastSpace = 3.0f*mBarrierLimits.maxWidth;
-    mBarrierLimits.maxLastSpace = 7.0f*mBarrierLimits.maxWidth;
-    mBarrierLimits.minHeight = 0.03f; // units
-    mBarrierLimits.maxHeight = 0.50f - 1.5f*mBirdRadius; // units
+    mBarrierLimits.minLastSpace = 2.0f*mBarrierLimits.maxWidth;
+    mBarrierLimits.maxLastSpace = 3.5f*mBarrierLimits.maxWidth;
+    mBarrierLimits.minHeight = 0.1f; // units
+    mBarrierLimits.maxHeight = 1.0f - 2.5f*mBirdRadius; // when appeared simultaneously
     randLastBarrier();
 
     // first time initialization
@@ -106,12 +106,12 @@ GLfloat Panorama::getRndLastBarrierHeight() const{
 
 bool Panorama::isIntersection() const{
     GLfloat rightLim = mpFlappyBird->getRightX();
-    for (TListItemOf<BarrierRect>* pBarrier = mplstRectBarriers->First(); pBarrier; pBarrier = pBarrier->Next()) {
+    for (TListItemOf<BarrierRect>* pBarrier = mplstRectBarriers->First(); pBarrier; pBarrier = pBarrier->Next()) {//п/п
         BarrierRect* pB = &(pBarrier->m_value);
 
         GLfloat leftLim = pB->mGlobalVertex.mX - pB->mL;
         if (leftLim - rightLim > 0.0)
-            break;
+            continue; //break; if barriers go one-by-one
 
         if (circRectIntersect(mpFlappyBird, pB))
             return true;

@@ -25,12 +25,22 @@ void GlDraw::newPanorama(){// first time initialization here
     else {
         mpScene->newOne(flappyCenter);
     }
-    BarrierRect barrierRect(PntR2(0.0f, -1.0f), mpScene->mBarrierLimits.maxWidth,
+    BarrierRect barrierRectBtm(PntR2(0.0f, -1.0f), mpScene->mBarrierLimits.maxWidth,
                             mpScene->mBarrierLimits.minHeight);
-    BarrierRect barrierRec2(PntR2(0.5f, -1.0f), mpScene->mBarrierLimits.minWidth,
+    BarrierRect barrierRecBtm2(PntR2(0.75f, -1.0f), mpScene->mBarrierLimits.minWidth,
                             mpScene->mBarrierLimits.maxHeight);
-    mpScene->appendBarrier(barrierRect);
-    mpScene->appendBarrier(barrierRec2);
+
+    GLfloat height = mpScene->mBarrierLimits.maxHeight;
+    BarrierRect barrierRectTop(PntR2(0.5f,  1.0f - height),
+                               mpScene->mBarrierLimits.maxWidth, height);
+    height = mpScene->mBarrierLimits.maxHeight;
+    BarrierRect barrierRecTop2(PntR2(1.0f, 1.0f - height),
+                               mpScene->mBarrierLimits.minWidth, height);
+
+    mpScene->appendBarrier(barrierRectBtm);
+    mpScene->appendBarrier(barrierRectTop);
+    mpScene->appendBarrier(barrierRecBtm2);
+    mpScene->appendBarrier(barrierRecTop2);
 }
 
 GLuint GlDraw::mvPositionHandle() const{
@@ -100,7 +110,7 @@ void GlDraw::drawBarriers(){
     }
 
     TListItemOf<BarrierRect>* pLast = pFirst;
-    for (TListItemOf<BarrierRect>* pBarrier = pFirst; pBarrier; pBarrier = pBarrier->Next()) {
+    for (TListItemOf<BarrierRect>* pBarrier = pFirst; pBarrier; pBarrier = pBarrier->Next()){
         BarrierRect* pB = &(pBarrier->m_value);
         pB->mGlobalVertex.mX -= mBarriersVelocity;
 
@@ -111,10 +121,21 @@ void GlDraw::drawBarriers(){
 
     {// new barrier
         GLfloat distance = mpScene->getRndLastBarrierSpace();
-        if ((M_X - pLast->m_value.mGlobalVertex.mX) >= distance) {
-            GLfloat width = mpScene->getRndLastBarrierWidth();
-            BarrierRect newB(PntR2(M_X, -1.0f), width, mpScene->getRndLastBarrierHeight());
+        if ((M_X - pLast->m_value.mGlobalVertex.mX) >= distance){
+            GLfloat height = mpScene->getRndLastBarrierHeight();
+            GLfloat decide = rand();
+            GLfloat rndTopBottom = decide<0.5*RAND_MAX ? -1.0f : 1.0f - height;
+            BarrierRect newB(PntR2(M_X, rndTopBottom),
+                             mpScene->getRndLastBarrierWidth(), height);
             mpScene->appendBarrier(newB);
+
+            //additional probability to appears together (can be modified)
+            if ((decide<=0.7*RAND_MAX)&&(decide>0.3*RAND_MAX)){
+                BarrierRect pairB(PntR2(M_X, -height-rndTopBottom),
+                                  mpScene->getRndLastBarrierWidth(), height);
+                mpScene->appendBarrier(pairB);
+                LOGI("here I am\n");
+            }
         }
     }
 }
