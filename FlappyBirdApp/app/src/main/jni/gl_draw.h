@@ -14,37 +14,21 @@
 #include "panorama.h"
 #endif
 
-class GlDraw {
+class SceneActionPaint : public Panorama, public Scale{
 public:
-    GlDraw(GLuint* pgvPositionHandle);
-    ~GlDraw();
-    GLuint mvPositionHandle() const;
-    void setScale(GLfloat scale);
-    void newPanorama();
+    SceneActionPaint();
+    void newScene();
 
     void drawBarriers();
     bool drawBird();
 
-    void paintBarrier(BarrierRect*) const;
-    void paintTheBird(FlappyCircle* pTheBird = NULL) const;
-    const GLfloat* paintScaling(GLfloat*, unsigned int) const;
-
     void onTouch(GLfloat, GLfloat);
 
-private:
-    Panorama* mpScene;
-    GLuint* mpvPositionHandle;
-    GLfloat M_X;
-
-    GlDraw(const GlDraw&);
-    void operator=(const GlDraw&);
+    //void setScale(GLfloat scale){return };
 
 public:
     GLfloat mBarriersVelocity; // units/frame
     GLfloat mBirdVelocity;     // units/frame
-
-    GLfloat mGlobalVelocity;   // units/frame
 };
-
 
 #endif //FLAPPYBIRDAPP_GL_DRAW_H

@@ -36,7 +36,7 @@ public:
 class LineR2 { //R^2 line
 public:
     LineR2():mVec(), mPnt(){};//for the consistence
-    LineR2(PntR2 point, PntR2 vector):mVec(vector), mPnt(point){};
+    LineR2(PntR2& point, PntR2& vector):mVec(vector), mPnt(point){};
     virtual ~LineR2(){};
 
     PntR2 mPnt; // point
@@ -46,19 +46,18 @@ public:
 class Side : public LineR2 { //R^2 line with Limits
 public:
     Side():LineR2(){};//for the consistence
-    Side(PntR2 point, PntR2 vector/*full*/);
+    Side(PntR2& point, PntR2& vector/*full*/):LineR2(point, vector){};
     ~Side(){};
 };
 
 class FlappyCircle { //Circled bird
 public:
-    FlappyCircle():mGlobalCenter(), mRadius(0){}; //for the consistence
-    FlappyCircle(PntR2 globalCenter, GLfloat radius):
-            mGlobalCenter(globalCenter), mRadius(radius){};
+    FlappyCircle(); //for the consistence
+    FlappyCircle(PntR2& globalCenter, GLfloat radius);
 
     FlappyCircle(const FlappyCircle&);
     void operator=(const FlappyCircle&);
-    ~FlappyCircle();
+    virtual ~FlappyCircle();
     bool isEmpty() const;
 
     GLfloat mRadius;
@@ -81,13 +80,14 @@ public:
 
 class BarrierRect { //Rectangle barrier
     static const unsigned int SZS = 4;
+
 public:
     BarrierRect();//for the consistence
-    BarrierRect(PntR2 globalBottomRight, GLfloat width, GLfloat height);
+    BarrierRect(PntR2& globalBottomRight, GLfloat width, GLfloat height);
 
     BarrierRect(const BarrierRect&);
     void operator=(const BarrierRect&);
-    ~BarrierRect();
+    virtual ~BarrierRect();
     bool isEmpty() const;
 
     PntR2 mGlobalVertex;// Bottom right

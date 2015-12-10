@@ -24,7 +24,7 @@ void Panorama::newOne(PntR2& flappyCenter){ // first time initialization here
 
     // first time initialization
     if (!mpFlappyBird) {
-        mpFlappyBird = new FlappyCircle(flappyCenter, mBirdRadius);
+        mpFlappyBird = new FlappyPaint(flappyCenter, mBirdRadius);
     }
     else{
         mpFlappyBird->mGlobalCenter = flappyCenter;
@@ -32,7 +32,7 @@ void Panorama::newOne(PntR2& flappyCenter){ // first time initialization here
     }
 
     if (!mplstRectBarriers) {
-        mplstRectBarriers = new TListOf<BarrierRect>();
+        mplstRectBarriers = new TListOf<BarrierPaint>();
     }
     else{
         mplstRectBarriers->Clear();
@@ -44,8 +44,8 @@ Panorama::~Panorama(){
     if (mplstRectBarriers) delete(mplstRectBarriers);
 };
 
-void Panorama::appendBarrier(BarrierRect& item){ // append last (push)
-    TListItemOf<BarrierRect>* pItem = new TListItemOf<BarrierRect>;
+void Panorama::appendBarrier(BarrierPaint& item){ // append last (push)
+    TListItemOf<BarrierPaint>* pItem = new TListItemOf<BarrierPaint>;
     pItem->m_value = item;
     mplstRectBarriers->Append(pItem);
 
@@ -53,17 +53,17 @@ void Panorama::appendBarrier(BarrierRect& item){ // append last (push)
 }
 
 void Panorama::deleteBarrier(){                  // delete first (pop)
-    TListItemOf<BarrierRect>* pFirst = mplstRectBarriers->First();
+    TListItemOf<BarrierPaint>* pFirst = mplstRectBarriers->First();
     if (pFirst){ // comment check if slow
         mplstRectBarriers->DeleteItem(pFirst);
     }
 }
 
-TListOf<BarrierRect>* Panorama::barriers() const{
+TListOf<BarrierPaint>* Panorama::barriers() const{
     return mplstRectBarriers;
 }
 
-FlappyCircle* Panorama::bird() const {
+FlappyPaint* Panorama::bird() const {
     return mpFlappyBird;
 }
 
@@ -106,8 +106,8 @@ GLfloat Panorama::getRndLastBarrierHeight() const{
 
 bool Panorama::isIntersection() const{
     GLfloat rightLim = mpFlappyBird->getRightX();
-    for (TListItemOf<BarrierRect>* pBarrier = mplstRectBarriers->First(); pBarrier; pBarrier = pBarrier->Next()) {//п/п
-        BarrierRect* pB = &(pBarrier->m_value);
+    for (TListItemOf<BarrierPaint>* pBarrier = mplstRectBarriers->First(); pBarrier; pBarrier = pBarrier->Next()) {//п/п
+        BarrierPaint* pB = &(pBarrier->m_value);
 
         GLfloat leftLim = pB->mGlobalVertex.mX - pB->mL;
         if (leftLim - rightLim > 0.0)

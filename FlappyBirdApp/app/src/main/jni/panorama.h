@@ -6,8 +6,8 @@
 #ifndef FLAPPYBIRDAPP_PANORAMA_H
 #define FLAPPYBIRDAPP_PANORAMA_H
 
-#ifndef FLAPPYBIRDAPP_GEOMETRY_H
-#include "geometry.h"
+#ifndef FLAPPYBIRDAPP_GEOMETRY_RENDER_H
+#include "geometry_render.h"
 #endif
 
 #ifndef FLAPPYBIRDAPP_TLIST_H
@@ -26,24 +26,24 @@ struct BarrierLimits{
 class Panorama { // just repository (otherwise can operate with global objects)
 public:
     Panorama(PntR2& flappyCenter); // first time initialization here
-    ~Panorama();
+    virtual ~Panorama();
     void newOne(PntR2&);
 
 private:
-    FlappyCircle* mpFlappyBird;
-    TListOf<BarrierRect>* mplstRectBarriers;
+    FlappyPaint* mpFlappyBird;
+    TListOf<BarrierPaint>* mplstRectBarriers;
 
     Panorama(const Panorama&);
     void operator=(const Panorama&);
 
 public:
-    void appendBarrier(BarrierRect& item); // append last (push)
+    void appendBarrier(BarrierPaint& item); // append last (push)
     void deleteBarrier();                  // delete first (pop)
     bool isEmptyBarriers() const;
 
-    //TListItemOf<BarrierRect>* firstBarrier() const;
-    TListOf<BarrierRect>* barriers() const;
-    FlappyCircle* bird() const;
+    //TListItemOf<BarrierPaint>* firstBarrier() const;
+    TListOf<BarrierPaint>* barriers() const;
+    FlappyPaint* bird() const;
 
     bool isIntersection() const;
 

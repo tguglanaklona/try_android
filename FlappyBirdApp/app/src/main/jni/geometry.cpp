@@ -65,8 +65,13 @@ GLfloat PntR2::length() const{
     return (GLfloat)sqrt(mX*mX + mY*mY);
 }
 
-Side::Side(PntR2 point, PntR2 vector)
-        :LineR2(point, vector){
+FlappyCircle::FlappyCircle():mGlobalCenter(), mRadius(0){
+    mpGLVertices = NULL;
+};
+
+FlappyCircle::FlappyCircle(PntR2& globalCenter, GLfloat radius):
+        mGlobalCenter(globalCenter), mRadius(radius){
+    mpGLVertices = NULL;
 }
 
 FlappyCircle::FlappyCircle(const FlappyCircle& c){
@@ -88,8 +93,8 @@ bool FlappyCircle::isEmpty() const{
 }
 
 unsigned int FlappyCircle::calcDrawVertices(){
-    if (mpGLVertices){ delete (mpGLVertices); mpGLVertices = NULL; }
     unsigned int outVertices = 26;
+    if (mpGLVertices){ delete (mpGLVertices); mpGLVertices = NULL; }
 
     mpGLVertices = new GLfloat[outVertices*2];
     GLfloat* pGLVertices = mpGLVertices;
@@ -190,7 +195,7 @@ BarrierRect::BarrierRect():mGlobalVertex(), mL(0), mH(0){
     }
 }
 
-BarrierRect::BarrierRect(PntR2 globalBottomRight, GLfloat width, GLfloat height):
+BarrierRect::BarrierRect(PntR2& globalBottomRight, GLfloat width, GLfloat height):
                          mGlobalVertex(globalBottomRight), mL(width), mH(height){
     mpGL4Vertices = NULL;
     /*calcSides();*/
@@ -259,7 +264,7 @@ void BarrierRect::calcDrawVertices() {
     mpGL4Vertices[7]=mGlobalVertex.mY + mH;
 }
 
-bool circRectIntersect(const FlappyCircle* pCirc, BarrierRect* pRect){
+bool circRectIntersect(const FlappyCircle* pCirc, BarrierRect* pRect){// polygonal in common
     PntR2 O(pCirc->mGlobalCenter);
 
     const Side* side4 = pRect->getSides(1);

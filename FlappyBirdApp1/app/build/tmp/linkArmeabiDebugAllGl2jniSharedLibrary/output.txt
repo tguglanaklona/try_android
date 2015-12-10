@@ -1,0 +1,4 @@
+See file:///C:/Users/HP/AndroidStudioProjects/FlappyBirdApp/app/build/tmp/linkArmeabiDebugAllGl2jniSharedLibrary/output.txt for all output for linkArmeabiDebugAllGl2jniSharedLibrary.
+linking libgl2jni.so successful.
+
+Finished linkArmeabiDebugAllGl2jniSharedLibrary, see full log file:///C:/Users/HP/AndroidStudioProjects/FlappyBirdApp/app/build/tmp/linkArmeabiDebugAllGl2jniSharedLibrary/output.txt.
