@@ -48,8 +48,8 @@ public:
     virtual TListItem* Last      () { return last; }                // Get last  item in list
     virtual const TListItem* CFirst     () const { return first; }  // Get first item in list
     const TListItem* CLast       () const { return last; }          // Get last  item in list
-    virtual TListItem* operator[](unsigned int);                    // Convert num to item
-    //const TListItem* operator[](unsigned int index) const { return const_cast<TList *>(this)->operator[](index); }
+    virtual TListItem* operator[](size_t);                    // Convert num to item
+    //const TListItem* operator[](size_t index) const { return const_cast<TList *>(this)->operator[](index); }
 
     unsigned int Count   () const { return counter; }               // Get number of items
     int  IsEmpty         () const { return first==NULL; }
@@ -86,10 +86,10 @@ private:
 #define DECLARE_BASIC_LIST_METHODS(itemclsname, base) \
   itemclsname *First();\
   itemclsname *Last ();\
-  itemclsname *operator[](unsigned int index);\
+  itemclsname *operator[](size_t index);\
   const itemclsname *CFirst() const;\
   const itemclsname *CLast () const;//\
-  //const itemclsname *operator[](unsigned int index) const
+  //const itemclsname *operator[](size_t index) const
 
 #define DECLARE_MORE_LIST_METHODS(itemclsname, listclsname, base) \
   //void ReLink       (listclsname *list);\
@@ -114,10 +114,10 @@ private:
 #define IMPLEMENT_BASIC_LIST_METHODS(itemclsname, prefix, base) \
   inline itemclsname *prefix##First() { return static_cast<itemclsname *>(base::First()); } \
   inline itemclsname *prefix##Last () { return static_cast<itemclsname *>(base::Last()); } \
-  inline itemclsname *prefix##operator[](unsigned int index) { return static_cast<itemclsname *>(base::operator[](index)); } \
+  inline itemclsname *prefix##operator[](size_t index) { return static_cast<itemclsname *>(base::operator[](index)); } \
   inline const itemclsname *prefix##CFirst() const { return static_cast<const itemclsname *>(base::CFirst()); } \
   inline const itemclsname *prefix##CLast () const { return static_cast<const itemclsname *>(base::CLast()); }// \
-  //inline const itemclsname *prefix##operator[](unsigned int index) const { return static_cast<const itemclsname *>(base::operator[](index)); }
+  //inline const itemclsname *prefix##operator[](size_t index) const { return static_cast<const itemclsname *>(base::operator[](index)); }
 
 #define IMPLEMENT_MORE_LIST_METHODS(itemclsname, listclsname, prefix, base) \
   //inline void prefix##ReLink       (listclsname *list)                         { base::ReLink(list); } \
@@ -183,10 +183,10 @@ public:
     IMPLEMENT_LIST_METHODS(TListItemOf<T>, TListOf<T>, Inherited);
     /*virtual TListItemOf<T> * First() { return static_cast<TListItemOf<T> *>(Inherited::First()); }
     virtual TListItemOf<T> * Last () { return static_cast<TListItemOf<T> *>(Inherited::Last()); }
-    virtual TListItemOf<T> * operator[](unsigned int index) { return static_cast<TListItemOf<T> *>(Inherited::operator[](index)); }
+    virtual TListItemOf<T> * operator[](size_t index) { return static_cast<TListItemOf<T> *>(Inherited::operator[](index)); }
     virtual const TListItemOf<T> * CFirst() const { return static_cast<const TListItemOf<T> *>(Inherited::CFirst()); }
     virtual const TListItemOf<T> * CLast () const { return static_cast<const TListItemOf<T> *>(Inherited::CLast()); }
-    //const TListItemOf<T> * operator[](unsigned int index) const { return static_cast<const TListItemOf<T> *>(Inherited::operator[](index)); }*/
+    //const TListItemOf<T> * operator[](size_t index) const { return static_cast<const TListItemOf<T> *>(Inherited::operator[](index)); }*/
 
 private:
     TListOf<T>(const TListOf<T>&);

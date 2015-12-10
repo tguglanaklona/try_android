@@ -154,11 +154,11 @@ void TList::DeleteItem (TListItem* ptItem){
     //Assert(counter<=1 || first!=last);
 }
 
-TListItem* TList::operator[] (unsigned int index){
+TListItem* TList::operator[] (size_t index){
     if (index >= counter)
         return NULL;
     TListItem* pItem = First();
-    for (unsigned int i = 0; i < index; i++, pItem = pItem->Next());
+    for (size_t i = 0; i < index; i++, pItem = pItem->Next());
     return pItem;
 }
 
