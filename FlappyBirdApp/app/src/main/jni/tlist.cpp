@@ -1,35 +1,26 @@
 //
-// Created by HP on 29.11.2015.
+// tlist.cpp
 //
 
 #include "tlist.h"
 
 //      TListItem class
-TListItem::TListItem ()
-        : next(NULL), prev(NULL)
+TListItem::TListItem(): next(NULL), prev(NULL)
 {
-
 }
-
-
 
 //
 //      TList class
 //
-TList::TList ()
-        : first(NULL), last(NULL)
-        , counter(0)
+TList::TList(): first(NULL), last(NULL), counter(0)
 {
-
 }
 
-TList::~TList ()
-{
+TList::~TList(){
     Clear();
 }
 
-void TList::Clear()
-{
+void TList::Clear(){
     TListItem * pItem = Last();
     while (pItem) {
         TListItem * nextItem = pItem;
@@ -43,19 +34,18 @@ void TList::Clear()
 }
 
 
-void TList::Append (TListItem* ptItem)
-{
+void TList::Append (TListItem* ptItem){
     //Assert(ptItem->prev==NULL && ptItem->next==NULL); // not in list
 
-    if (first==NULL) {                            // List is empty
+    if (first==NULL) {                        // List is empty
         //Assert(last==NULL);
         first    = ptItem;
         last     = ptItem;
     }
     else {
         //Assert(last!=NULL);
-        //Assert(last != ptItem); // already in list!!
-        ptItem->prev = last;                      // Set previous link
+        //Assert(last != ptItem);             // already in list
+        ptItem->prev = last;                  // Set previous link
         last->next = ptItem;
         last = ptItem;
     }
@@ -64,26 +54,26 @@ void TList::Append (TListItem* ptItem)
 }
 
 
-void TList::InsertBefore (TListItem* ptBefore, TListItem* ptNewItem)
-{
+void TList::InsertBefore (TListItem* ptBefore, TListItem* ptNewItem){
     if (ptBefore == NULL || ptNewItem == NULL) {
         //Assert(false);
         return;
     }
-    if (IsEmpty()) {                            // List is empty
+    if (IsEmpty()) {                          // List is empty
         //Assert(false);
         return;
     }
 
+	//Assert(ptNewItem->prev==NULL && ptNewItem->next==NULL); // not in list -> last not handled
     //Assert(ptBefore!=ptNewItem);
 
     ptNewItem->prev = ptBefore->prev;
 
-    if (ptBefore->prev==NULL) {               // Before is the  first item
+    if (ptBefore->prev==NULL){                // Before is the first item
         //Assert(ptBefore==first);
-        first = ptNewItem;                      // Change the first item
+        first = ptNewItem;                    // Change the first item
     }
-    else {
+    else{
         //Assert(ptBefore!=first);
         ptBefore->prev->next = ptNewItem;
     }
@@ -95,24 +85,24 @@ void TList::InsertBefore (TListItem* ptBefore, TListItem* ptNewItem)
     //Assert(counter<=1 || first!=last);
 }
 
-void TList::InsertAfter (TListItem* ptAfter, TListItem* ptNewItem)
-{
+void TList::InsertAfter (TListItem* ptAfter, TListItem* ptNewItem){
     if (ptAfter == NULL || ptNewItem == NULL) {
         //Assert(false);
         return;
     }
-    if (IsEmpty()) {                            // List is empty
+    if (IsEmpty()) {                          // List is empty
         //Assert(false);
         return;
     }
 
+	//Assert(ptNewItem->prev==NULL && ptNewItem->next==NULL); // not in list -> first not handled
     //Assert(ptAfter!=ptNewItem);
 
     ptNewItem->next = ptAfter->next;
 
-    if (ptAfter->next==NULL) {               // After the last item
+    if (ptAfter->next==NULL){                 // After the last item
         //Assert(ptAfter==last);
-        last = ptNewItem;                      // Change the last item
+        last = ptNewItem;                     // Change the last item
     }
     else {
         //Assert(ptAfter!=last);
@@ -126,11 +116,10 @@ void TList::InsertAfter (TListItem* ptAfter, TListItem* ptNewItem)
     //Assert(counter<=1 || first!=last);
 }
 
-void TList::DeleteItem (TListItem* ptItem)
-{
+void TList::DeleteItem (TListItem* ptItem){
     counter--;
 
-    if (first == last) {                        // List consist of one item
+    if (first == last){                       // List consist of one item
         //Assert(ptItem==first);
         delete ptItem;
         first = last = NULL;
@@ -138,7 +127,7 @@ void TList::DeleteItem (TListItem* ptItem)
         return;
     }
 
-    if (ptItem != first && ptItem != last) {     // Delete the middle item
+    if (ptItem != first && ptItem != last){   // Delete the middle item
         TListItem* PrevItem = ptItem->Prev();
         TListItem* NextItem = ptItem->Next();
         PrevItem->next = NextItem;
@@ -148,7 +137,7 @@ void TList::DeleteItem (TListItem* ptItem)
         return;
     }
 
-    if (ptItem == last) {                        // Delete last in the list ( >= 1 item)
+    if (ptItem == last){                      // Delete last in the list ( >= 1 item)
         TListItem* PrevItem = ptItem->Prev();
         PrevItem->next = NULL;
         last = PrevItem;
@@ -156,7 +145,7 @@ void TList::DeleteItem (TListItem* ptItem)
         //Assert(counter<=1 || first!=last);
         return;
     }
-    if (ptItem == first) {                       // Delete first in the list ( >= 1 item)
+    if (ptItem == first){                     // Delete first in the list ( >= 1 item)
         TListItem* NextItem = ptItem->Next();
         NextItem->prev = NULL;
         first = NextItem;
@@ -165,8 +154,7 @@ void TList::DeleteItem (TListItem* ptItem)
     //Assert(counter<=1 || first!=last);
 }
 
-TListItem* TList::operator[] (unsigned int index)
-{
+TListItem* TList::operator[] (unsigned int index){
     if (index >= counter)
         return NULL;
     TListItem* pItem = First();
@@ -174,14 +162,6 @@ TListItem* TList::operator[] (unsigned int index)
     return pItem;
 }
 
-
-void TList:: ReLink(TList *list)
-{
-    for(TListItem *ptItem; (ptItem=list->First()) != NULL; ) {
-        list->ExtractItem (ptItem);
-        Append(ptItem);
-    }
-}
 void TList::ExtractItem (TListItem* ptItem)
 {
     counter--;
@@ -193,7 +173,7 @@ void TList::ExtractItem (TListItem* ptItem)
         return;
     }
 
-    if (ptItem != first && ptItem != last) {     // Delete the middle item
+    if (ptItem != first && ptItem != last) {     // the middle item
         TListItem* PrevItem = ptItem->Prev();
         TListItem* NextItem = ptItem->Next();
         PrevItem->next = NextItem;
@@ -203,7 +183,7 @@ void TList::ExtractItem (TListItem* ptItem)
         return;
     }
 
-    if (ptItem == last) {                        // Delete last in the list ( >= 1 item)
+    if (ptItem == last) {                        // last in the list ( >= 1 item)
         TListItem* PrevItem = ptItem->Prev();
         PrevItem->next = NULL;
         last = PrevItem;
@@ -211,7 +191,7 @@ void TList::ExtractItem (TListItem* ptItem)
         //Assert(counter<=1 || first!=last);
         return;
     }
-    if (ptItem == first) {                       // Delete first in the list ( >= 1 item)
+    if (ptItem == first) {                       // first in the list ( >= 1 item)
         TListItem* NextItem = ptItem->Next();
         NextItem->prev = NULL;
         first = NextItem;
@@ -332,8 +312,7 @@ void TList::MoveToBegin(TListItem *ptItem)
     //Assert(first!=last);
 }
 
-void TList::MoveToEnd(TListItem *ptItem)
-{
+void TList::MoveToEnd(TListItem *ptItem){
     if(ptItem==last) return;
 
     TListItem *next=ptItem->next;
@@ -351,8 +330,7 @@ void TList::MoveToEnd(TListItem *ptItem)
     //Assert(first!=last);
 }
 
-void TList::MovePrev (TListItem *ptItem)
-{
+void TList::MovePrev (TListItem *ptItem){
     TListItem * prev = ptItem->prev;
     if (!prev) return;
 
@@ -399,10 +377,9 @@ void TList::MoveNext (TListItem *ptItem)
     //Assert(first!=last);
 }
 
-int TList::Index(const TListItem* ptItem) const
-{
+int TList::Index(const TListItem* ptItem) const{
     int i=0;
-    for(const TListItem *p=CFirst(); p; p=p->Next(), i++) {
+    for(const TListItem *p=CFirst(); p; p=p->Next(), i++){
         if(p==ptItem)
             return i;
     }
@@ -412,7 +389,7 @@ int TList::Index(const TListItem* ptItem) const
 int TList::DeleteFrom(TListItem* ptItem)
 {
     if ( IsEmpty() ) return 0;
-    if ( Index(ptItem) < 0 ) return 0; //item doesn't belong to list
+    if ( Index(ptItem) < 0 ) return 0;        //item doesn't belong to list
 
     unsigned int deleted_count = 0;
 
