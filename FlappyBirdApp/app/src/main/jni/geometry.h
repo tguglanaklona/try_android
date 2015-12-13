@@ -1,6 +1,6 @@
 //
 // Objects primitives and intersections.
-// Then they are mapped to Panorama grid
+// Then they are mapped to Panorama
 //
 
 #ifndef FLAPPYBIRDAPP_GEOMETRY_H
@@ -54,9 +54,6 @@ class FlappyCircle { //Circled bird
 public:
     FlappyCircle(); //for the consistence
     FlappyCircle(PntR2& globalCenter, GLfloat radius);
-
-    FlappyCircle(const FlappyCircle&);
-    void operator=(const FlappyCircle&);
     virtual ~FlappyCircle();
     bool isEmpty() const;
 
@@ -72,8 +69,11 @@ public:
 private:
     //we can save more positions or not
     GLfloat *mpGLVertices;
+    unsigned int mOutVertices;
     unsigned int calcDrawVertices();
 
+    FlappyCircle(const FlappyCircle&);
+    void operator=(const FlappyCircle&);
 public:
     /*const*/GLfloat* glDrawVertices(bool, unsigned int* out = NULL);
 };

@@ -1,4 +1,12 @@
-See file:///C:/Users/HP/AndroidStudioProjects/FlappyBirdApp/app/build/tmp/compileArmeabiDebugAllGl2jniSharedLibraryGl2jniMainCpp/output.txt for all output for compileArmeabiDebugAllGl2jniSharedLibraryGl2jniMainCpp.
+See file:///C:/Users/HP/AndroidStudioProjects/FlappyBirdApp1/app/build/tmp/compileArmeabiDebugAllGl2jniSharedLibraryGl2jniMainCpp/output.txt for all output for compileArmeabiDebugAllGl2jniSharedLibraryGl2jniMainCpp.
+compiling tlist.cpp successful.
+
+compiling panorama.cpp successful.
+
+compiling gl_draw.cpp successful.
+
+compiling geometry.cpp successful.
+
 compiling gl_code.cpp successful.
 
-Finished compileArmeabiDebugAllGl2jniSharedLibraryGl2jniMainCpp, see full log file:///C:/Users/HP/AndroidStudioProjects/FlappyBirdApp/app/build/tmp/compileArmeabiDebugAllGl2jniSharedLibraryGl2jniMainCpp/output.txt.
+Finished compileArmeabiDebugAllGl2jniSharedLibraryGl2jniMainCpp, see full log file:///C:/Users/HP/AndroidStudioProjects/FlappyBirdApp1/app/build/tmp/compileArmeabiDebugAllGl2jniSharedLibraryGl2jniMainCpp/output.txt.

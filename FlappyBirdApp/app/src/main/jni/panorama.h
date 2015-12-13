@@ -1,5 +1,5 @@
 //
-// All screen objects are saved here (with no grid) and controlled by GlDraw.
+// All screen objects are saved here (with no grid) and controlled by SceneActionPaint.
 // They are drawn by OpenGL SE in DrawGLScene() function.
 //
 
@@ -38,7 +38,7 @@ private:
 
 public:
     void appendBarrier(BarrierPaint& item); // append last (push)
-    void deleteBarrier();                  // delete first (pop)
+    void deleteBarrier();                   // delete first (pop)
     bool isEmptyBarriers() const;
 
     //TListItemOf<BarrierPaint>* firstBarrier() const;

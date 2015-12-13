@@ -68,6 +68,15 @@ GLuint gcreateProgram(const char* pVertexSource, const char* pFragmentSource) {
     return program;
 }
 
+/*float gTranslation[4] = {0.0f, 0.0f, 0.0f, 0.0f};
+
+const char FlappyPaint::vertexShaderCode[] =
+        "uniform vec4 vShift;\n" \
+        "attribute vec4 vPosition;\n" \
+        "void main() {\n" \
+        "  gl_Position = vPosition + vShift;\n" \
+        "}\n";*/
+
 const char FlappyPaint::vertexShaderCode[] =
         "attribute vec4 vPosition;\n" \
         "void main() {\n" \
@@ -80,7 +89,7 @@ const char FlappyPaint::fragmentShaderCode[] =
         "  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n" \
         "}\n";
 
-void FlappyPaint::paintTheBird(const Scale* pScale)/*const*/{
+void FlappyPaint::paintTheBird(const Scale* pScale){
     glUseProgram(mProgram);
     checkGlError("glUseProgram");
 
@@ -117,9 +126,6 @@ GLuint BarrierPaint::createProgram(){
         LOGE("Could not create program.");
         return false;
     }
-    /*GLuint vTestPositionHandle = glGetAttribLocation(mProgram, "vPosition");
-    checkGlError("glGetAttribLocation");
-    LOGI("glGetAttribLocation(\"vPosition\") = %d\n", vTestPositionHandle);*/
     return true;
 }
 

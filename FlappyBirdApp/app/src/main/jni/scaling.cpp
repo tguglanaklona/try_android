@@ -34,3 +34,4 @@ const GLfloat* Scale::paintScaling(GLfloat* v /*non-const*/, unsigned int n) con
     }
     return v;
 }
+

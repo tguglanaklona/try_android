@@ -3,13 +3,13 @@ compiling geometry_render.cpp successful.
 
 compiling scaling.cpp successful.
 
-compiling gl_draw.cpp successful.
-
 compiling tlist.cpp successful.
 
-compiling gl_code.cpp successful.
+compiling gl_draw.cpp successful.
 
 compiling panorama.cpp successful.
+
+compiling gl_code.cpp successful.
 
 compiling geometry.cpp successful.
 

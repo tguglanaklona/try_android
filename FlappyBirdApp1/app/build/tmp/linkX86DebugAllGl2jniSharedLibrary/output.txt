@@ -1,4 +1,4 @@
-See file:///C:/Users/HP/AndroidStudioProjects/FlappyBirdApp/app/build/tmp/linkX86DebugAllGl2jniSharedLibrary/output.txt for all output for linkX86DebugAllGl2jniSharedLibrary.
+See file:///C:/Users/HP/AndroidStudioProjects/FlappyBirdApp1/app/build/tmp/linkX86DebugAllGl2jniSharedLibrary/output.txt for all output for linkX86DebugAllGl2jniSharedLibrary.
 linking libgl2jni.so successful.
 
-Finished linkX86DebugAllGl2jniSharedLibrary, see full log file:///C:/Users/HP/AndroidStudioProjects/FlappyBirdApp/app/build/tmp/linkX86DebugAllGl2jniSharedLibrary/output.txt.
+Finished linkX86DebugAllGl2jniSharedLibrary, see full log file:///C:/Users/HP/AndroidStudioProjects/FlappyBirdApp1/app/build/tmp/linkX86DebugAllGl2jniSharedLibrary/output.txt.

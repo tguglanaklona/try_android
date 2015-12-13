@@ -66,22 +66,14 @@ GLfloat PntR2::length() const{
 }
 
 FlappyCircle::FlappyCircle():mGlobalCenter(), mRadius(0){
-    mpGLVertices = NULL;
-};
+    mpGLVertices = NULL; mOutVertices = 0;
+    /*calcDrawVertices();*/
+}
 
 FlappyCircle::FlappyCircle(PntR2& globalCenter, GLfloat radius):
         mGlobalCenter(globalCenter), mRadius(radius){
-    mpGLVertices = NULL;
-}
-
-FlappyCircle::FlappyCircle(const FlappyCircle& c){
-    mGlobalCenter = c.mGlobalCenter; mRadius = c.mRadius;
-    mpGLVertices = NULL;
-}
-
-void FlappyCircle::operator=(const FlappyCircle& c){
-    mGlobalCenter = c.mGlobalCenter; mRadius = c.mRadius;
-    mpGLVertices = NULL;
+    mpGLVertices = NULL; mOutVertices = 0;
+    /*calcDrawVertices();*/
 }
 
 FlappyCircle::~FlappyCircle() {
@@ -93,10 +85,10 @@ bool FlappyCircle::isEmpty() const{
 }
 
 unsigned int FlappyCircle::calcDrawVertices(){
-    unsigned int outVertices = 26;
+    mOutVertices = 26;
     if (mpGLVertices){ delete (mpGLVertices); mpGLVertices = NULL; }
 
-    mpGLVertices = new GLfloat[outVertices*2];
+    mpGLVertices = new GLfloat[mOutVertices*2];
     GLfloat* pGLVertices = mpGLVertices;
     pGLVertices[0]=mGlobalCenter.mX; pGLVertices++;
     pGLVertices[0]=mGlobalCenter.mY; pGLVertices++;
@@ -180,11 +172,12 @@ unsigned int FlappyCircle::calcDrawVertices(){
     pGLVertices[0]=mGlobalCenter.mX;                        pGLVertices++;
     pGLVertices[0]=mGlobalCenter.mY + mRadius;
 
-    return outVertices;
+    return mOutVertices;
 }
 
 GLfloat* FlappyCircle::glDrawVertices(bool bRecalc, unsigned int* outVertices/* = NULL*/){
     if (bRecalc) *outVertices = calcDrawVertices();
+    else *outVertices = mOutVertices;
     return mpGLVertices;
 }
 

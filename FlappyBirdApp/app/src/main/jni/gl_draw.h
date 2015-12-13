@@ -1,9 +1,9 @@
 //
-// GlDraw: uses Panorama objects to draw in DrawGLScene()
-//         Arrange them at [-1; M_X]x[-1; 1] grid.
+// SceneActionPaint: uses Panorama objects to draw in DrawGLScene()
+//                   Arrange them at [-1; M_X]x[-1; 1] grid.
 //
 // Consists of controlling methods
-// and those which calls paint by OpenGL SE
+// and those which calls OpenGL SE painter
 //
 
 #ifndef FLAPPYBIRDAPP_GL_DRAW_H
@@ -23,8 +23,6 @@ public:
     bool drawBird();
 
     void onTouch(GLfloat, GLfloat);
-
-    //void setScale(GLfloat scale){return };
 
 public:
     GLfloat mBarriersVelocity; // units/frame
