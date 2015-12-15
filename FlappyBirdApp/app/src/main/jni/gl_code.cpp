@@ -29,7 +29,7 @@ GLuint    gProgram;
 GLuint    gvPositionHandle;
 */
 
-SceneActionPaint scene;
+SceneControl scene;
 
 int       gEndTimer = 0;
 const int gEndTime = 100;

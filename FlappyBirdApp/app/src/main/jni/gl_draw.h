@@ -14,9 +14,9 @@
 #include "panorama.h"
 #endif
 
-class SceneActionPaint : public Panorama, public Scale{
+class SceneControl : public Panorama, public Scale{
 public:
-    SceneActionPaint();
+    SceneControl();
     void newScene();
 
     void drawBarriers();

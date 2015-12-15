@@ -6,14 +6,14 @@
 
 PntR2 gFlappyCenter(-0.75f, 0.0f); // first time initialization
 
-SceneActionPaint::SceneActionPaint():Panorama(gFlappyCenter), Scale(1.0f){  // first time initialization here
+SceneControl::SceneControl():Panorama(gFlappyCenter), Scale(1.0f){  // first time initialization here
     mBirdVelocity     = 3.0f*mGlobalVelocity; // units/frame
     mBarriersVelocity = 2.0f*mGlobalVelocity; // units/frame
 
     newScene();
 }
 
-void SceneActionPaint::newScene(){// first time initialization here
+void SceneControl::newScene(){// first time initialization here
     this->newOne(gFlappyCenter);
 
     PntR2 bottomRightCorner(0.0f, -1.0f);
@@ -38,7 +38,7 @@ void SceneActionPaint::newScene(){// first time initialization here
     appendBarrier(barrierRecTop2);
 }
 
-void SceneActionPaint::drawBarriers(){
+void SceneControl::drawBarriers(){
     TListItemOf<BarrierPaint>* pFirst = barriers()->First();
    if (!pFirst)
     {// first
@@ -86,7 +86,7 @@ void SceneActionPaint::drawBarriers(){
     }
 }
 
-bool SceneActionPaint::drawBird(){
+bool SceneControl::drawBird(){
     FlappyPaint* pTheBird = bird();
     pTheBird->mGlobalCenter.mY -= mBirdVelocity;
     //LOGI("pTheBird: %x\n", pTheBird);
@@ -104,7 +104,7 @@ bool SceneActionPaint::drawBird(){
     return false;
 }
 
-void SceneActionPaint::onTouch(GLfloat x, GLfloat y) /* x, y - unused */{
+void SceneControl::onTouch(GLfloat x, GLfloat y) /* x, y - unused */{
     bird()->mGlobalCenter.mY += mBirdJump;
 }
 
